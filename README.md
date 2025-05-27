@@ -20,9 +20,5 @@ Prezentarea este structurată pe slide-uri interactive, include tabele și ilust
 * JavaScript (inline)
 
 ## Cum se vizualizează
-1.  Descărcați fișierul `Prezentare CME AB-MC.html`.
-2.  Deschideți fișierul într-un browser web modern (de ex., Chrome, Firefox, Edge, Safari).
-
-Sau, dacă este găzduită pe GitHub Pages:
 
 * Accesați linkul: https://mariuscomper.github.io/prezentare-cme-robotica/Prezentare%20CME%20AB-MC.html.
