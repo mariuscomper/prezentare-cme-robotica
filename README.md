@@ -20,5 +20,4 @@ Prezentarea este structurată pe slide-uri interactive, include tabele și ilust
 * JavaScript (inline)
 
 ## Cum se vizualizează
-
-* Accesați linkul: https://mariuscomper.github.io/prezentare-cme-robotica/Prezentare%20CME%20AB-MC.html.
+* [Click aici pentru a vedea prezentarea](https://mariuscomper.github.io/prezentare-cme-robotica/Prezentare%20CME%20AB-MC.html)
