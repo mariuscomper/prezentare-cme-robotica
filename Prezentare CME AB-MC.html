@@ -1,0 +1,1169 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prezentare: CME Robotică în Cancerul de Colon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            overscroll-behavior-y: contain;
+        }
+        .slide {
+            display: none;
+            animation: fadeIn 0.5s;
+            height: 100%; 
+            flex-direction: column;
+        }
+        .slide.active {
+            display: flex; 
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .table-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .table-container::-webkit-scrollbar-thumb {
+            background-color: #9ca3af; /* stone-400 */
+            border-radius: 4px;
+        }
+        .table-container::-webkit-scrollbar-track {
+            background-color: #f3f4f6; /* stone-100 */
+        }
+        
+        #presentationContainer {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            max-height: 100vh;
+        }
+
+        .slide-content-area {
+            flex-grow: 1;
+            overflow-y: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-main-content {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding-bottom: 1rem; 
+        }
+        .slide-main-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        .slide-main-content::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1; /* slate-300 */
+            border-radius: 4px;
+        }
+        .slide-main-content::-webkit-scrollbar-track {
+            background-color: #f1f5f9; /* slate-100 */
+        }
+
+        sup {
+            font-size: 0.75em; 
+            vertical-align: super;
+            line-height: 0; 
+        }
+        a.citation-link {
+            text-decoration: none;
+            color: #0d9488; /* teal-600 */
+            cursor: pointer;
+        }
+        a.citation-link:hover sup {
+            text-decoration: underline;
+        }
+        
+        .bibliography-slide .slide-main-content {
+             font-size: 0.8rem;
+        }
+        @media (min-width: 768px) {
+            .bibliography-slide .slide-main-content {
+                 font-size: 0.75rem;
+            }
+        }
+        .bibliography-slide .slide-main-content li {
+            word-break: break-word; 
+            margin-bottom: 0.5rem; 
+            padding-left: 0.5rem;
+            text-indent: -0.5rem;
+        }
+        .bibliography-slide .slide-main-content li strong {
+            margin-right: 0.25rem;
+        }
+        /* Stilizare pentru link-urile externe din bibliografie */
+        .bibliography-slide .slide-main-content a.external-link {
+            color: #2563eb; /* blue-600 */
+            text-decoration: underline;
+        }
+        .bibliography-slide .slide-main-content a.external-link:hover {
+            color: #1d4ed8; /* blue-700 */
+        }
+
+        #slideNumberInput {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin: 0 5px;
+            padding: 0.25rem;
+        }
+        .navigation-text {
+            margin: 0 5px;
+            font-size: 0.875rem; /* text-sm */
+        }
+        @media (min-width: 640px) {
+            #slideNumberInput {
+                width: 50px;
+            }
+            .navigation-text {
+                font-size: 1rem; /* text-base */
+            }
+        }
+        #navigationControls button {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem; /* text-sm */
+        }
+         @media (min-width: 640px) {
+            #navigationControls button {
+                padding: 0.5rem 1rem;
+                font-size: 1rem; /* text-base */
+            }
+        }
+        .toc-link {
+            display: block; 
+            padding: 0.25rem 0;
+        }
+        #tocList li { /* Adaugă puțin spațiu sub fiecare element din TOC */
+            margin-bottom: 0.25rem; /* Ajustează după preferințe */
+        }
+    </style>
+</head>
+<body class="bg-stone-100 flex flex-col items-center justify-center min-h-screen p-1 sm:p-4">
+
+    <div id="presentationContainer" class="bg-white shadow-2xl rounded-lg w-full max-w-4xl overflow-hidden">
+        <div id="slideArea" class="p-4 md:p-6 lg:p-10 slide-content-area">
+            
+            <!-- SLIDE 1: Titlu -->
+            <div class="slide active">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-teal-700 mb-6 text-center">Excizia Mezocolică Completă (CME) Robotică în Cancerul de Colon Drept și Stâng</h1>
+                <p class="text-md sm:text-lg text-stone-700 text-center mt-4">Abordări Chirurgicale, Anatomie Specifică, Argumente Pro și Contra, și Managementul Incidentelor Intraoperatorii</p>
+                <p class="text-xs sm:text-sm text-stone-500 text-center mt-12">Apăsați "Următorul" pentru a începe.</p>
+            </div>
+
+            <!-- SLIDE-urile originale ale prezentarii încep aici -->
+            <!-- JavaScript va insera Cuprinsul după acest prim slide și înainte de următorul -->
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">I. Introducere în CME Robotică</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Definiția, principiile fundamentale și obiectivele oncologice ale CME</h3>
+                <p class="text-stone-600 mb-2"><strong>Definiție:</strong> Îndepărtarea completă a segmentului de colon purtător de tumoră, împreună cu țesuturile moi adiacente învelite de fascia mezocolică, și efectuarea unei limfadenectomii radicale la originea vaselor de alimentare, cunoscută sub denumirea de ligatură vasculară centrală (CVL).[1]</p>
+                <p class="text-stone-600"><strong>Principiu fundamental:</strong> Rezecția în bloc a tumorii, a mezocolonului corespunzător și a tuturor structurilor limfovasculare asociate, respectând cu strictețe planurile embriologice de disecție.[2]</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">I. Introducere în CME Robotică</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Obiectivele oncologice ale CME</h3>
+                <ul class="list-disc list-inside text-stone-600 space-y-2">
+                    <li>Obținerea unui specimen chirurgical de calitate superioară (mezocolon intact, lungime adecvată vase).</li>
+                    <li>Recoltarea unui număr cât mai mare de ganglioni limfatici (factor prognostic, indicator calitate).[6]</li>
+                    <li>Asigurarea unor margini de rezecție curate (R0) pentru reducerea recurenței locale și îmbunătățirea supraviețuirii.[2] Respectarea acestor principii definește standardul de radicalitate pe care CME își propune să îl atingă, fiind un element central în evaluarea argumentelor pro și contra ale acestei tehnici.</li>
+                </ul>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">I. Introducere în CME Robotică</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Contextul istoric: evoluția de la excizia totală a mezorectului (TME) și raționalul aplicării la nivelul colonului</h3>
+                <p class="text-stone-600 mb-2">Conceptul de CME își are rădăcinile în succesul demonstrat al exciziei totale a mezorectului (TME) în tratamentul cancerului rectal. TME, introdusă și popularizată de profesorul R.J. Heald, a revoluționat chirurgia cancerului rectal prin promovarea disecției meticuloase de-a lungul planurilor embriologice avasculare, cu îndepărtarea în bloc a rectului împreună cu mezorectul său intact.[2] Această abordare a condus la o scădere dramatică a ratelor de recurență locală și la o îmbunătățire semnificativă a supraviețuirii pacienților cu cancer rectal.</p>
+                <p class="text-stone-600 mb-2">Pornind de la aceste rezultate remarcabile, chirurgi precum Werner Hohenberger și colaboratorii săi au transpus principiile TME la chirurgia cancerului de colon, introducând conceptul de CME.[2] Raționalul acestei extrapolări s-a bazat pe observația fundamentală că și mezocolonul, similar mezorectului, este o structură embriologică distinctă, învelită de straturi fasciale proprii. Disecția în aceste planuri "sfinte" ar permite, teoretic, o rezecție la fel de curată și completă din punct de vedere oncologic. Studiile inițiale care au evaluat CME au raportat o reducere a recurenței locale de la 6.5% la 3.5% și o creștere a supraviețuirii de la 82.1% la 89.1%, susținând validitatea acestui concept.[2] Astfel, înțelegerea originii CME din TME este esențială pentru a aprecia baza embriologică și oncologică solidă a acestei proceduri. Această tranziție reflectă o înțelegere tot mai profundă a importanței disecției pe planuri embriologice pentru radicalitatea oncologică în întregul tract colorectal. Succesul TME a demonstrat că respectarea integrității mezoului reduce semnificativ recurența locală, iar extinderea acestei filozofii la mezocolon a fost un pas logic, sugerând că principiile embriologice sunt universal aplicabile pentru obținerea unor margini de rezecție optime și a unei limfadenectomii complete. Aceasta implică o schimbare de paradigmă de la simpla rezecție a organului la o "onco-anatomie" care consideră unitatea organ-mezou ca țintă a rezecției.</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">I. Introducere în CME Robotică</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Rolul și avantajele platformei robotice în realizarea CME</h3>
+                <p class="text-stone-600 mb-2">Realizarea CME, o procedură tehnic solicitantă, a beneficiat de progresele tehnologice, în special de introducerea platformelor robotice. Chirurgia robotică oferă o serie de avantaje care pot facilita efectuarea precisă și sigură a CME:</p>
+                <ul class="list-disc list-inside text-stone-600 space-y-1">
+                    <li>Vizualizare tridimensională (3D) mărită: Oferă chirurgului o percepție superioară a profunzimii și o imagine clară a câmpului operator.[7]</li>
+                    <li>Instrumente articulate (EndoWrist™): Acestea mimează mișcările mâinii umane, oferind șapte grade de libertate și permițând o disecție fină și precisă în spații înguste și în jurul structurilor delicate.[7]</li>
+                    <li>Eliminarea tremorului fiziologic: Sistemul robotic filtrează tremorul mâinilor chirurgului, contribuind la o mai mare stabilitate și precizie a mișcărilor.[10]</li>
+                    <li>Ergonomie îmbunătățită: Chirurgul operează de la o consolă, într-o poziție confortabilă, ceea ce poate reduce oboseala în timpul intervențiilor prelungite.[7]</li>
+                </ul>
+                <p class="text-stone-600 mt-2">Aceste caracteristici sunt deosebit de valoroase în CME, unde disecția meticuloasă de-a lungul planurilor fasciale și în apropierea structurilor vasculare majore (precum vena și artera mezenterică superioară) este esențială.[7] Platforma robotică poate, de asemenea, scurta curba de învățare pentru proceduri complexe precum CME, comparativ cu abordul laparoscopic standard.[5] Introducerea roboticii în CME nu este doar o evoluție tehnologică, ci un potențial facilitator pentru standardizarea și diseminarea mai largă a unei proceduri complexe. Deși CME este recunoscută pentru superioritatea sa oncologică, este o tehnică solicitantă, mai ales prin abord laparoscopic.[5] Avantajele intrinseci ale sistemului robotic, precum vizualizarea 3D și dexteritatea instrumentelor articulate [7], pot atenua dificultățile tehnice și pot scurta curba de învățare.[5] Acest lucru ar putea permite unui număr mai mare de chirurgi să efectueze CME cu rezultate comparabile cu cele ale centrelor de excelență. Cu toate acestea, costurile ridicate asociate achiziției și întreținerii sistemelor robotice, precum și necesitatea unui training specific și a unei curbe de învățare dedicate [10], rămân provocări semnificative pentru adoptarea pe scară largă a acestei tehnologii.</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">II. Anatomia Chirurgicală Detaliată a Colonului și Mezocolonului pentru CME Robotică</h2>
+                <p class="text-stone-600 mb-2">O înțelegere aprofundată a anatomiei colonului și a mezocolonului, inclusiv a planurilor fasciale și a vascularizației, este fundamentală pentru realizarea corectă și sigură a exciziei mezocolice complete robotice. Conceptul de "planuri embriologice" [2] nu este doar un detaliu anatomic, ci constituie fundamentul filozofiei chirurgicale a CME. Acesta dictează o tehnică de disecție care urmărește minimizarea diseminării tumorale și maximizarea recoltării limfatice. Disecția de-a lungul fasciilor avasculare, cum ar fi fascia Toldt [2], se bazează pe premisa că acestea reprezintă bariere naturale împotriva răspândirii cancerului. Menținerea integrității acestor planuri, adesea denumită "no-touch isolation technique", asigură îndepărtarea în bloc a întregului pachet limfovascular asociat segmentului colonic afectat. Aceasta reduce riscul de însămânțare tumorală și maximizează șansele unei rezecții R0, reprezentând o diferență fundamentală față de rezecțiile tradiționale, care sunt adesea mai puțin standardizate și pot duce la breșe în mezocolon.</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">II. Anatomia Chirurgicală</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Anatomia specifică a colonului drept și a mezocolonului corespunzător</h3>
+                <p class="text-stone-600 mb-2">Segmentul drept al colonului include cecul, colonul ascendent, flexura hepatică și porțiunea proximală a colonului transvers.[25] Mezocolonul ascendent este o structură retroperitoneală, fiind adiacent peretelui abdominal posterior. Interfața crucială pentru disecția în CME este fascia lui Toldt, o structură fină de țesut conjunctiv situată între mezocolonul ascendent și fascia prerenală, care acoperă structurile retroperitoneale precum rinichiul drept, duodenul și capul pancreasului.[2] Fascia lui Gerota (fascia renală) reprezintă un reper anatomic posterior important în timpul acestei disecții. Cheia unei CME corecte la acest nivel constă în disecția precisă în planul avascular dintre mezocolon și fascia lui Toldt, mobilizând astfel colonul și mezocolonul său medial, până la expunerea vaselor mezenterice superioare.[2] Cunoașterea exactă a acestor straturi fasciale este esențială pentru a efectua o disecție atraumatică și pentru a menține integritatea specimenului rezecat, un principiu de bază al CME.</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">II. Anatomia Chirurgicală</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Anatomia specifică a colonului stâng și a mezocolonului corespunzător</h3>
+                <p class="text-stone-600 mb-2">Colonul stâng cuprinde porțiunea distală a colonului transvers, flexura splenică, colonul descendent și colonul sigmoid.[25] Similar colonului drept, mezocolonul descendent și porțiunea non-mobilă a mezosigmoidului sunt acoperite de fascia lui Toldt în zonele unde sunt adiacente retroperitoneului.[2] Flexura splenică este un segment particular, fiind mai puțin mobilă și fixată la diafragm prin ligamentul frenocolic.[25] Mobilizarea colonului stâng pentru CME implică, de asemenea, identificarea și disecția în planul avascular al fasciei lui Toldt, eliberând colonul și mezocolonul său de structurile retroperitoneale, inclusiv rinichiul stâng, vasele gonadale și ureterul stâng.</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">II. Anatomia Chirurgicală</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Vascularizația arterială detaliată</h3>
+                 <p class="text-stone-600 mb-2">O ligatură vasculară centrală (CVL) precisă este un pilon al tehnicii CME. Aceasta necesită o înțelegere detaliată a anatomiei arteriale și a posibilelor anastomoze pentru a asigura o limfadenectomie adecvată și pentru a evita ischemia segmentelor intestinale restante.</p>
+                <p class="text-stone-600 mb-2"><strong>Artera Mezenterică Superioară (AMS) și ramurile sale pentru colonul drept și transvers proximal:</strong> AMS este sursa principală de vascularizație pentru aceste segmente. Ramurile sale cheie includ artera ileocolică (AIC), care irigă ileonul terminal, cecul și apendicele; artera colică dreaptă (ACD), care vascularizează colonul ascendent; și artera colică medie (ACM), destinată colonului transvers.[29] Originea și traiectul acestor artere, în special relația lor cu vena mezenterică superioară (VMS), sunt de o importanță crucială în timpul disecției centrale. De exemplu, AIC este de obicei ramura cea mai inferioară, în timp ce ACM are originea superior și poate avea un traiect variabil.</p>
+            </div>
+            
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">II. Anatomia Chirurgicală</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Vascularizația arterială detaliată (continuare)</h3>
+                <p class="text-stone-600 mb-2"><strong>Artera Mezenterică Inferioară (AMI) și ramurile sale pentru colonul stâng:</strong> AMI vascularizează colonul stâng prin intermediul arterei colice stângi (ACS), care irigă colonul descendent și flexura splenică, și al arterelor sigmoidiene, destinate colonului sigmoid.[31] Artera rectală superioară este ramura terminală a AMI. Un principiu fundamental al CME pentru cancerele de colon stâng este ligatura înaltă a AMI la originea sa din aortă, pentru a maximiza recoltarea ganglionară la acest nivel.</p>
+                <p class="text-stone-600 mb-2"><strong>Arcadele vasculare:</strong> Continuitatea vascularizației colonului este asigurată de arcade anastomotice. Cea mai importantă este artera marginală a lui Drummond, care se formează prin anastomoza ramurilor terminale ale arterelor colice și se întinde de-a lungul marginii mezenterice a colonului.[25] Arcul lui Riolan (artera mezenterică șerpuitoare) este o altă anastomoză importantă, mai centrală, între sistemul AMS (prin ACM) și sistemul AMI (prin ACS).[29] Integritatea acestor arcade este vitală, mai ales în contextul ligaturilor vasculare înalte efectuate în CME, pentru a preveni ischemia anastomozei sau a segmentului colonic restant.</p>
+                <p class="text-stone-600 mt-2">Deși se discută despre "colon drept" și "colon stâng" ca entități separate, tranzițiile vasculare și embriologice necesită o atenție deosebită și pot influența extinderea rezecției și strategia de ligatură vasculară. De exemplu, flexura splenică este considerată o zonă de "watershed" vascular, situată la joncțiunea dintre teritoriile irigate de AMS și AMI.[25] Această zonă are o vascularizație intrinsec mai precară și mai variabilă.[31] O CME pentru o tumoră localizată la acest nivel poate necesita o rezecție extinsă, uneori o hemicolectomie subtotală, și o evaluare atentă a arcadelor anastomotice pentru a asigura viabilitatea anastomozei. Similar, tumorile localizate la nivelul colonului transvers pot impune ligatura arterei colice medii la originea sa, cu implicații potențiale pentru vascularizația ambelor flexuri colice, necesitând o planificare chirurgicală meticuloasă.</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">II. Anatomia Chirurgicală</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Drenajul venos și limfatic specific segmentelor colice</h3>
+                <p class="text-stone-600 mb-2">Extirparea completă a drenajului limfatic este esențială pentru stadializarea corectă și controlul oncologic. Variațiile venoase, precum cele ale trunchiului Henle, pot crește riscul de sângerare și necesită o atenție sporită.</p>
+                <p class="text-stone-600 mb-2"><strong>Venele:</strong> Drenajul venos al colonului urmează, în general, traiectul arterelor omonime. Venele colice drepte și ileocolică drenează în vena mezenterică superioară (VMS), iar venele colice stângi și sigmoidiene drenează în vena mezenterică inferioară (VMI). VMS și VMI (prin intermediul venei splenice) se unesc pentru a forma vena portă.[25] O structură venoasă de importanță deosebită în chirurgia colonului drept este trunchiul gastrocolic al lui Henle, format prin confluența venei gastroepiploice drepte, a venei colice medii și, adesea, a venei pancreaticoduodenale anterioare superioare, drenând în VMS.[3]</p>
+                <p class="text-stone-600 mb-2"><strong>Limfaticele:</strong> Sistemul limfatic al colonului este bogat și urmează traiectul vaselor sanguine. Ganglionii limfatici sunt grupați în stații succesive: epicolic (pe peretele colonului), paracolic (de-a lungul arcadei marginale), intermediari (de-a lungul ramurilor principale ale AMS și AMI) și principali sau centrali (la originea AMS și AMI).[6] Scopul CME este excizia în bloc a tuturor acestor stații ganglionare aferente segmentului colonic tumoral. Ghidurile actuale recomandă recoltarea unui minim de 12-15 ganglioni limfatici pentru o stadializare adecvată a cancerului de colon.[6]</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">III. Variații Anatomice și Implicațiile lor Clinice în CME Robotică</h2>
+                <p class="text-stone-600 mb-2">Variabilitatea anatomică, în special cea vasculară, este mai degrabă o regulă decât o excepție în chirurgia colorectală. Această realitate subliniază limitările unei abordări chirurgicale strict standardizate și evidențiază necesitatea unei "hărți" anatomice preoperatorii personalizate pentru fiecare pacient. Frecvența mare a variațiilor arterei colice drepte [44], arterei colice stângi [51], arcadelor vasculare [35] și a trunchiului Henle [41] demonstrează că anatomia "clasică", așa cum este descrisă în manuale, este întâlnită doar la o fracțiune din pacienți. Fără o evaluare preoperatorie detaliată, de exemplu prin angio-CT 3D [53], chirurgul se poate confrunta cu dificultăți neașteptate, crescând riscul de leziuni vasculare [12], sângerare intraoperatorie [1] sau o limfadenectomie incompletă. O înțelegere deficitară sau o nerecunoaștere a acestor variații anatomice poate duce direct la incidente intraoperatorii, compromițând atât siguranța pacientului, cât și radicalitatea oncologică a CME. De exemplu, dacă un chirurg nu identifică absența arcului lui Riolan [57] și efectuează o ligatură înaltă a AMI pentru un cancer de sigmoid, poate rezulta ischemie la nivelul anastomozei.[57] Similar, confuzia unei ramuri anormale a AMS cu un vas principal în timpul CME pe dreapta poate duce la sângerare sau la o limfadenectomie incompletă.[59]</p>
+                <p class="text-stone-600 mt-2">Platforma robotică, prin vizualizarea 3D superioară și instrumentele articulate, oferă un avantaj potențial în gestionarea acestor variații anatomice, permițând o disecție mai precisă și mai sigură în jurul structurilor critice. Identificarea și disecția meticuloasă a variantelor trunchiului Henle [8] sau a unei artere colice drepte cu origine atipică [50] sunt facilitate de vizualizarea 3D și de capacitatea de a manipula țesuturile cu precizie.[7] Acest lucru poate contribui la reducerea incidenței leziunilor vasculare, care reprezintă o preocupare majoră în CME.[1]</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">III. Variații Anatomice</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Variații ale vascularizației arteriale (AMS, AMI, ACD, ACS, arcade vasculare)</h3>
+                <p class="text-stone-600 mb-2"><strong>Artera Colică Dreaptă (ACD):</strong> Această arteră prezintă o mare variabilitate. Poate fi absentă într-un procent semnificativ de cazuri (estimări variind de la 10% până la 88% în diferite studii, cu o medie frecvent citată în jur de 20%).[44] Când este prezentă, originea sa poate varia: direct din AMS, dintr-un trunchi comun cu ACM (Pattern IIa în clasificarea lui Gamo et al. [50]), sau chiar din artera ileocolică.[44] Absența sau originea atipică a ACD impune o identificare precisă a celorlalte surse vasculare pentru colonul drept (ACM, AIC) și o disecție meticuloasă pentru a asigura o CVL corectă și a evita devascularizarea segmentului restant.[12]</p>
+                <p class="text-stone-600 mb-2"><strong>Artera Colică Stângă (ACS):</strong> Similar ACD, ACS poate prezenta variații în originea sa din AMI, putând emerge dintr-un trunchi comun cu arterele sigmoidiene sau, în cazuri rare, poate avea o origine aberantă, de exemplu din AMS.[48] Aceste variații anatomice influențează strategia de ligatură înaltă a AMI și pot dicta necesitatea prezervării ACS în anumite situații pentru a menține o vascularizație adecvată a colonului descendent și a anastomozei.[51]</p>
+                <p class="text-stone-600 mb-2"><strong>Artera Colică Medie (ACM):</strong> Poate avea o origine comună cu ACD (Pattern IIa [50]) sau poate fi absentă, caz în care vascularizația colonului transvers depinde în întregime de anastomozele dintre ACD și ACS prin intermediul arcadei marginale a lui Drummond.[59]</p>
+                <p class="text-stone-600"><strong>Arcadele Vasculare (Drummond, Riolan):</strong> Prezența, continuitatea și calibrul acestor arcade anastomotice sunt extrem de variabile.[29] O arcadă marginală a lui Drummond slab dezvoltată, discontinuă (în special la nivelul flexurii splenice – punctul critic al lui Griffiths) sau absența completă a arcului lui Riolan (prezent în aproximativ 10-27.8% din cazuri [35]) crește semnificativ riscul de ischemie colonică postoperatorie, mai ales după ligaturi vasculare extensive, așa cum se practică în CME.[31] Aceste variații sunt frecvente și pot transforma o procedură standardizată într-una complexă, cu risc crescut de complicații vasculare sau rezecție oncologică inadecvată dacă nu sunt recunoscute și gestionate corect.</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">III. Variații Anatomice</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Tabelul 1: Principalele Variații Vasculare Arteriale (AMS, AMI) și Implicațiile lor în CME Robotică</h3>
+                <div class="table-container overflow-x-auto mt-3">
+                    <table class="min-w-full divide-y divide-stone-200 border border-stone-300">
+                        <thead class="bg-stone-50">
+                            <tr>
+                                <th class="px-3 py-2 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">Variație Anatomică</th>
+                                <th class="px-3 py-2 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">Frecv. (%)</th>
+                                <th class="px-3 py-2 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">Implicații CME</th>
+                                <th class="px-3 py-2 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">Riscuri Specifice</th>
+                                <th class="px-3 py-2 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">Management</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-stone-200 text-sm text-stone-600">
+                            <tr>
+                                <td class="px-3 py-2">ACD absentă</td>
+                                <td class="px-3 py-2">10-88 (~20)</td>
+                                <td class="px-3 py-2">Colon Drept. Vascularizație dep. de AIC/ACM.</td>
+                                <td class="px-3 py-2">Ischemie; limfadenectomie incompletă.</td>
+                                <td class="px-3 py-2">Angio-CT. Disecție atentă VMS.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2">Origine comună ACD și ACM</td>
+                                <td class="px-3 py-2">CT: 4.28; Cadavre: 20</td>
+                                <td class="px-3 py-2">Colon Drept. Ligatura afectează asc./transv.</td>
+                                <td class="px-3 py-2">Devascularizare extinsă.</td>
+                                <td class="px-3 py-2">Angio-CT. Identificare și ligatură trunchi.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2">Origine comună ACD și AIC</td>
+                                <td class="px-3 py-2">CT: 15; Cadavre: 32</td>
+                                <td class="px-3 py-2">Colon Drept. Ligatura afect. cec/asc./ileon.</td>
+                                <td class="px-3 py-2">Similar tr. colic drept-mijlociu.</td>
+                                <td class="px-3 py-2">Angio-CT. Identificare și ligatură trunchi.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2">ACS origine înaltă / tr. comun</td>
+                                <td class="px-3 py-2">Variabilă</td>
+                                <td class="px-3 py-2">Colon Stâng. Modifică plan lig. AMI.</td>
+                                <td class="px-3 py-2">Lezare ACS; ischemie.</td>
+                                <td class="px-3 py-2">Angio-CT. Disecție atentă AMI. ICG.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2">Arc. Drummond întreruptă (P. Griffiths)</td>
+                                <td class="px-3 py-2">~5 (întrerup.)</td>
+                                <td class="px-3 py-2">Colon Stâng (Flex. Splenică). Risc ischemie.</td>
+                                <td class="px-3 py-2">Necesită evaluare perfuzie.</td>
+                                <td class="px-3 py-2">Angio-CT, ICG.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2">Absența Arcului lui Riolan</td>
+                                <td class="px-3 py-2">~70-90</td>
+                                <td class="px-3 py-2">Colon Stâng. Reduce colateralizarea. Risc ischemie post-lig. AMI.</td>
+                                <td class="px-3 py-2">Prudență lig. AMI. Evaluare perfuzie.</td>
+                                <td class="px-3 py-2">Angio-CT, ICG.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-xs text-stone-500 mt-1">Surse principale: [44,49,50,51,52,31,33,34,35,57] (Notă: Numerele se referă la bibliografia generală)</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">III. Variații Anatomice</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Variații ale drenajului venos (ex. trunchiul venos gastrocolic al lui Henle)</h3>
+                <p class="text-stone-600 mb-2">Trunchiul gastrocolic al lui Henle (GCT), o structură venoasă cheie în chirurgia colonului drept, prezintă o considerabilă variabilitate anatomică. Acesta este format, în mod clasic, prin confluența venei gastroepiploice drepte (VGED), a unei vene colice (cel mai frecvent vena colică medie (VCM) sau vena colică dreaptă (VCD)) și, adesea, a venei pancreaticoduodenale anterioare superioare (VPAS), drenând ulterior în vena mezenterică superioară (VMS).[8]</p>
+                <p class="text-stone-600 mb-2">Clasificările anatomice, cum ar fi cele care descriu trunchiul ca fiind bipod, tripod sau tetrapod, în funcție de numărul de tributare majore, ajută la înțelegerea acestei complexități.[41] De exemplu, cea mai comună variantă de trunchi gastropancreaticocolic (care include o componentă pancreatică) este un tripod format din VGED, VCD și VPAS.[41] Lezarea trunchiului Henle sau a numeroaselor sale tributare delicate în timpul disecției ganglionare centrale, specifică CME pentru cancerul de colon drept, reprezintă un risc major de sângerare intraoperatorie semnificativă, dificil de controlat.[42] Prin urmare, trunchiul Henle este un reper anatomic critic și o sursă potențială de complicații hemoragice majore în hemicolectomia dreaptă cu CME.</p>
+            </div>
+            
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">III. Variații Anatomice</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Tabelul 2: Clasificarea Variațiilor Trunchiului Henle și Riscurile Asociate în Hemicolectomia Dreaptă Robotică cu CME</h3>
+                <div class="table-container overflow-x-auto mt-3">
+                    <table class="min-w-full divide-y divide-stone-200 border border-stone-300">
+                        <thead class="bg-stone-50">
+                            <tr>
+                                <th class="px-3 py-2 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">Tip Trunchi Henle</th>
+                                <th class="px-3 py-2 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">Vene Componente</th>
+                                <th class="px-3 py-2 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">Frecv. (%)</th>
+                                <th class="px-3 py-2 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">Riscuri Specifice</th>
+                                <th class="px-3 py-2 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">Recomandări</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-stone-200 text-sm text-stone-600">
+                            <tr>
+                                <td class="px-3 py-2">Gastrocolic</td>
+                                <td class="px-3 py-2">VGED, VCD (sau VCM)</td>
+                                <td class="px-3 py-2">Bipod: ~12.5%</td>
+                                <td class="px-3 py-2">Lezare VGED/v. colică. Sângerare.</td>
+                                <td class="px-3 py-2">Identif. VMS. Disecție meticuloasă. Ligatură selectivă.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2">Gastropancreaticocolic</td>
+                                <td class="px-3 py-2">VGED, VCD (sau VCM), VPAS</td>
+                                <td class="px-3 py-2">Tripod: ~60.6%</td>
+                                <td class="px-3 py-2">Risc lezare VPAS (sângerare, pancreatită).</td>
+                                <td class="px-3 py-2">Identif. precoce. Disecție atentă. Prezervare VPAS/VGED.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2">Gastropancreatic</td>
+                                <td class="px-3 py-2">VGED, VPAS</td>
+                                <td class="px-3 py-2">~11%</td>
+                                <td class="px-3 py-2">Risc confuzie. Lezare VGED/VPAS.</td>
+                                <td class="px-3 py-2">Înțelegere că nu toate au comp. colică.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2">Alte variante (Tetrapod etc.)</td>
+                                <td class="px-3 py-2">Combinații multiple</td>
+                                <td class="px-3 py-2">Variabilă</td>
+                                <td class="px-3 py-2">Complexitate mare. Risc lezare tributare.</td>
+                                <td class="px-3 py-2">Angio-CT utilă. Disecție pas cu pas.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-xs text-stone-500 mt-1">Surse principale: [41,42] (Notă: Numerele se referă la bibliografia generală)</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">III. Variații Anatomice</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Alte variații anatomice și consecințele lor intraoperatorii</h3>
+                <p class="text-stone-600 mb-2">Pe lângă variațiile vasculare, și alte particularități anatomice pot influența desfășurarea CME robotice:</p>
+                <p class="text-stone-600 mb-2"><strong>Poziția colonului și a mezocolonului:</strong> Un mezocolon transvers lung și redundant poate facilita mobilizarea, în timp ce un mezocolon scurt, îngroșat sau fixat la structurile adiacente poate îngreuna considerabil disecția și crește riscul de leziuni.[25]</p>
+                <p class="text-stone-600 mb-2"><strong>Aderențe:</strong> Prezența aderențelor peritoneale, fie congenitale, fie postoperatorii sau postinflamatorii, poate oblitera planurile anatomice normale. Disecția în aceste condiții este mai laborioasă și crește riscul de leziuni viscerale (intestin subțire, stomac) sau vasculare.[7]</p>
+                <p class="text-stone-600"><strong>Variații ureterale:</strong> Deși mai relevante în chirurgia colonului stâng, variațiile ureterale precum duplicațiile, un ureter retrocav sau un ureter deplasat medial de o masă tumorală voluminoasă sau de o cantitate mare de grăsime retroperitoneală, pot crește riscul de leziune ureterală accidentală în timpul disecției retroperitoneale.[67] Aceste variații non-vasculare pot, de asemenea, complica semnificativ procedura CME robotică, necesitând o atenție sporită și o adaptare a tehnicii chirurgicale.</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">IV. CME Robotică pentru Colonul Drept</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Indicații, principii specifice și aspecte tehnice</h3>
+                <p class="text-stone-600 mb-2">Excizia mezocolică completă robotică pentru cancerul de colon drept este indicată pentru tumorile localizate la nivelul cecului, colonului ascendent, flexurii hepatice și porțiunii proximale a colonului transvers.[8] Unele centre extind indicația pentru cancerele cecale care prezintă adenopatii regionale extinse (stadiul N2) la evaluarea imagistică preoperatorie.[8]</p>
+                <p class="text-stone-600 mb-2">Principiile specifice ale R-CME pentru colonul drept includ disecția ascuțită, meticuloasă, în planul embriologic dintre mezocolon și fascia retroperitoneală (fascia Toldt), ligatura vasculară centrală (CVL) a vaselor ileocolice, a arterei colice drepte (dacă este prezentă) și a ramurii drepte a vaselor colice medii la originea lor din axul vascular mezenteric superior (artera și vena mezenterică superioară – AMS/VMS), și excizia în bloc a mezocolonului corespunzător, intact, împreună cu segmentul colonic afectat.[2]</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">IV. CME Robotică pentru Colonul Drept</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Descrierea detaliată a principalelor aborduri chirurgicale (1/2)</h3>
+                <p class="text-stone-600 mb-2">Diversitatea abordurilor chirurgicale robotice pentru CME pe dreapta sugerează că nu există încă un consens absolut asupra tehnicii "optime", ci mai degrabă o adaptare la particularitățile anatomice ale cazului și la experiența și preferințele chirurgului. Fiecare abord descris încearcă să optimizeze expunerea și controlul vascular într-o zonă anatomică complexă și extrem de variabilă.</p>
+                <p class="text-stone-600 mb-2"><strong>Abordul medial-lateral ("SMV-first" sau "SMA-first"):</strong> Acesta este unul dintre cele mai frecvent descrise aborduri. Procedura începe cu incizia peritoneului sub pediculul ileocolic și identificarea venei mezenterice superioare (VMS) ca prim reper anatomic major. Disecția progresează apoi cranial de-a lungul VMS pentru a expune originea vaselor ileocolice și, ulterior, a trunchiului venos gastrocolic al lui Henle și a vaselor colice medii.[1] Pașii cheie includ retracția anselor ileale pentru expunerea rădăcinii mezenterului, identificarea VMS, ligatura venei ileocolice (ICV) urmată de ligatura arterei ileocolice (ICA) la originea lor din VMS, respectiv AMS. Disecția continuă apoi cranial de-a lungul VMS.[8] Abordul "SMV-first" se concentrează pe VMS ca reper central pentru orientarea disecției.</p>
+                <p class="text-stone-600 mt-3 mb-2"><strong>Abordul cranio-caudal ("top-down"):</strong> Această tehnică începe superior, cu incizia ligamentului gastrocolic și intrarea în bursa omentală. Se identifică vena gastroepiploică dreaptă (VGED) care servește drept ghid către trunchiul Henle. Ulterior, se disecă și se ligaturează vasele colice medii (sau ramura dreaptă a acestora), iar disecția coboară apoi spre vasele ileocolice.[8] Susținătorii acestui abord pretind o identificare precoce și mai sigură a trunchiului Henle și a vaselor colice medii, precum și o separare mai bună de duoden și pancreas.[45] Unele studii sugerează că acest abord poate reduce timpul operator și sângerarea intraoperatorie.[45] Abordul "top-down" prioritizează identificarea timpurie a structurilor vasculare superioare pentru a minimiza riscul de leziuni în această zonă critică.</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">IV. CME Robotică pentru Colonul Drept</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Descrierea detaliată a principalelor aborduri chirurgicale (2/2)</h3>
+                <p class="text-stone-600 mb-2"><strong>Abordul "bottom-up" (caudo-cranial):</strong> Disecția în acest caz începe de la joncțiunea ileocecală și progresează cranial, urmând fascia de fuziune a lui Fredet, între mezocolonul ascendent și retroperitoneu.[5] Avantajele pretinse includ o vizualizare superioară a reperelor anatomice critice inferioare și un control îmbunătățit al structurilor vasculare la debutul disecției.[72]</p>
+                <p class="text-stone-600 mt-3 mb-2"><strong>Abordul "Uncinatus First Approach" (UFA) cu conceptul "Critical View" (CV):</strong> Această tehnică particulară implică mobilizarea medială a duodenului (Kocherizare) și a capului pancreatic, inclusiv a procesului uncinat, ca prim pas major, pentru a expune fața posterioară a rădăcinii mezenterice.[26] Conceptul de "Critical View" definește anumite etape de vizualizare care trebuie atinse pentru a asigura siguranța procedurii. CV1 constă în vizualizarea porțiunii orizontale a duodenului cu procesul uncinat al capului pancreatic expus dorsal față de rădăcina mezenterică. CV2, denumit și "V-View", implică vizualizarea clară a confluenței vaselor ileocolice cu vena și artera mezenterică superioară înainte de orice disecție vasculară la acest nivel.[26]</p>
+                <p class="text-stone-600 mt-2">Alegerea abordului chirurgical depinde în mare măsură de preferințele și experiența chirurgului, de particularitățile anatomice ale pacientului (inclusiv variațiile vasculare și gradul de obezitate) și de localizarea exactă a tumorii în colonul drept. Fiecare abord prezintă avantaje și dezavantaje specifice în ceea ce privește expunerea câmpului operator, ușurința identificării și controlului structurilor vasculare și nervoase, și dificultatea tehnică generală.</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">IV. CME Robotică pentru Colonul Drept</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Argumente pro utilizării CME robotice (colon drept) (1/2)</h3>
+                <p class="text-stone-600 mb-2">Utilizarea platformei robotice pentru realizarea CME la nivelul colonului drept este susținută de o serie de argumente legate de calitatea rezecției oncologice, rezultatele perioperatorii și potențialele beneficii pe termen lung.</p>
+                <p class="text-stone-600 mb-2"><strong>Calitatea specimenului și limfadenectomie:</strong> Unul dintre cele mai puternice argumente este obținerea unui specimen chirurgical de calitate superioară, cu un mezocolon intact și o lungime mai mare a vaselor ligaturate central. Numeroase studii și meta-analize raportează un număr semnificativ mai mare de ganglioni limfatici recoltați în R-CME comparativ cu colectomia laparoscopică standard (non-CME) și, în unele cazuri, chiar și comparativ cu L-CME.[1] Acest aspect este crucial, deoarece un număr adecvat de ganglioni examinați (minim 12-15) este esențial pentru o stadializare corectă și poate influența deciziile terapeutice adjuvante.[6] Numărul mai mare de ganglioni limfatici recoltați în R-CME este un factor cheie care ar putea duce la îmbunătățirea stadializării și, teoretic, la rezultate oncologice mai bune pe termen lung. O stadializare mai precisă permite identificarea corectă a pacienților care necesită terapie adjuvantă, ceea ce poate influența supraviețuirea. Cu toate acestea, legătura directă între un număr mai mare de ganglioni și supraviețuirea îmbunătățită în contextul R-CME versus L-CME necesită încă dovezi definitive din studii randomizate controlate (RCT-uri) pe termen lung.[1]</p>
+                <p class="text-stone-600 mt-3 mb-2"><strong>Rezultate perioperatorii:</strong> Chirurgia robotică este asociată cu o rată de conversie la chirurgia deschisă semnificativ mai mică decât laparoscopia, în special în procedurile complexe precum CME.[7] Unele studii raportează, de asemenea, o pierdere de sânge intraoperatorie mai mică și o durată de spitalizare mai scurtă pentru R-CME.[10] Facilitarea realizării anastomozei intracorporeale este un alt avantaj, putând contribui la o recuperare postoperatorie mai rapidă și la incizii de extracție mai mici și mai estetice.[14]</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">IV. CME Robotică pentru Colonul Drept</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Argumente pro utilizării CME robotice (colon drept) (2/2)</h3>
+                <p class="text-stone-600 mb-2"><strong>Rezultate oncologice:</strong> Deși datele pe termen lung sunt încă în curs de maturare și necesită confirmarea prin RCT-uri de anvergură, unele studii și meta-analize sugerează că R-CME ar putea oferi o supraviețuire generală și o supraviețuire fără boală îmbunătățite la 3 și 5 ani, în special pentru pacienții în stadiul III de boală, comparativ cu abordările non-CME sau chiar L-CME.[7] Cu toate acestea, nu toate studiile confirmă această superioritate, unele raportând rezultate oncologice similare pe termen lung.[1] Argumentele pro se bazează pe îmbunătățirea parametrilor chirurgicali și patologici care sunt considerați, tradițional, predictori ai unui prognostic mai bun.</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">IV. CME Robotică pentru Colonul Drept</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Argumente contra și provocări (colon drept) (1/2)</h3>
+                <p class="text-stone-600 mb-2">În ciuda beneficiilor potențiale, implementarea R-CME pentru colonul drept se confruntă cu o serie de provocări și argumente contra.</p>
+                <p class="text-stone-600 mb-2"><strong>Dificultate tehnică și curbă de învățare:</strong> CME este o procedură intrinsec complexă, care necesită o disecție extinsă în apropierea unor structuri vasculare majore și o înțelegere profundă a anatomiei fasciale. Curba de învățare pentru R-CME este abruptă și poate fi prelungită, chiar și pentru chirurgii cu experiență în chirurgia robotică sau colorectală.[5] Variabilitatea anatomică, în special cea vasculară (originea și traiectul arterei colice drepte, configurația trunchiului Henle), adaugă un grad suplimentar de complexitate și imprevizibilitate.[44]</p>
+                <p class="text-stone-600 mt-3 mb-2"><strong>Timp operator:</strong> Durata intervenției chirurgicale pentru R-CME este adesea mai lungă comparativ cu laparoscopia convențională sau chirurgia deschisă, cel puțin în fazele inițiale ale experienței unui centru sau chirurg.[10] Acest timp prelungit poate fi atribuit atât complexității disecției CME, cât și timpului necesar pentru instalarea robotului și andocarea instrumentelor.</p>
+                <p class="text-stone-600 mt-3 mb-2"><strong>Costuri:</strong> Costurile asociate cu achiziționarea, întreținerea platformei robotice și consumabilele specifice sunt semnificativ mai mari decât cele pentru laparoscopie sau chirurgia deschisă, reprezentând o barieră importantă pentru adoptarea pe scară largă, mai ales în sistemele de sănătate cu resurse limitate.[10]</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">IV. CME Robotică pentru Colonul Drept</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Argumente contra și provocări (colon drept) (2/2)</h3>
+                <p class="text-stone-600 mb-2"><strong>Riscuri specifice:</strong> Disecția centrală extinsă, necesară pentru CVL și limfadenectomia completă, implică un risc crescut de leziuni vasculare, în special ale venei mezenterice superioare, ale arterei mezenterice superioare sau ale complexului venos al trunchiului Henle.[1] Deși robotica promite reducerea complicațiilor, unele studii, inclusiv meta-analize [76], arată că procedura CME în sine, indiferent de abordul minim invaziv, poate fi asociată cu un risc crescut de leziuni vasculare comparativ cu rezecțiile non-CME. Beneficiul robotului ar putea consta mai mult în gestionarea acestei complexități inerente decât în eliminarea completă a riscului. CME implică o disecție extinsă la rădăcina vaselor mezenterice.[2] Chiar și cu avantajele oferite de platforma robotică, proximitatea de VMS/SMA și variabilitatea anatomică a trunchiului Henle [42] mențin un risc intrinsec de leziuni vasculare.[12] Meta-analiza realizată de Oweira et al. [12] citează studiul RELARC, care sugerează un risc potențial crescut de leziuni vasculare în cadrul CME laparoscopice. Astfel, rolul chirurgiei robotice ar putea fi acela de a face această disecție, inerent riscantă, mai sigură și mai fezabilă pentru un număr mai mare de chirurgi, nu neapărat de a o transforma într-o procedură cu risc zero. Alte riscuri includ scurgerile limfatice (chiloase) datorită disecției limfatice extinse [1] și, mai rar, leziuni ale duodenului sau pancreasului în timpul disecției în proximitatea acestor organe.[3]</p>
+                <p class="text-stone-600 mt-3 mb-2"><strong>Lipsa dovezilor de nivel 1 pe termen lung:</strong> Majoritatea studiilor publicate până în prezent sunt retrospective, observaționale sau serii de cazuri din centre unice sau cu volum mare. Sunt necesare mai multe studii randomizate controlate, multicentrice, cu urmărire pe termen lung, pentru a confirma în mod definitiv superioritatea oncologică a R-CME față de alte tehnici și pentru a stabili raportul cost-eficiență.[1] Un studiu recent [74] a raportat chiar un risc paradoxal mai mare de deces din toate cauzele pentru RRC comparativ cu LRC, subliniind necesitatea unor investigații suplimentare și a unei interpretări prudente a datelor actuale.</p>
+                <p class="text-stone-600 mt-2">Aceste provocări trebuie luate în considerare și cântărite în raport cu beneficiile potențiale, necesitând o selecție atentă a pacienților, o infrastructură adecvată și, cel mai important, o expertiză chirurgicală considerabilă.</p>
+            </div>
+            
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">V. CME Robotică pentru Colonul Stâng (Inclusiv Sigmoid)</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Indicații, principii specifice și aspecte tehnice</h3>
+                <p class="text-stone-600 mb-2">Excizia mezocolică completă robotică pentru cancerele localizate la nivelul colonului stâng se adresează tumorilor din porțiunea distală a colonului transvers, flexura splenică, colonul descendent și colonul sigmoid.[7]</p>
+                <p class="text-stone-600 mb-2">Principiile fundamentale ale R-CME pentru colonul stâng includ ligatura înaltă a arterei mezenterice inferioare (AMI) la originea sa din aortă, sau, în funcție de localizarea specifică a tumorii și de anatomia vasculară, o ligatură selectivă distal de emergența arterei colice stângi (ACS). Un alt aspect crucial este prezervarea meticuloasă a structurilor nervoase autonome, în special a plexului hipogastric superior, pentru a minimiza disfuncțiile urinare și sexuale postoperatorii, precum și identificarea și protejarea ureterului stâng și a vaselor gonadale. Excizia în bloc a mezocolonului corespunzător segmentului afectat, cu respectarea planurilor embriologice, completează radicalitatea oncologică a procedurii.[3]</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">V. CME Robotică pentru Colonul Stâng</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Descrierea detaliată a principalelor aborduri chirurgicale</h3>
+                <p class="text-stone-600 mb-2"><strong>Abordul medial-lateral:</strong> Acesta este cel mai frecvent descris și utilizat abord în R-CME pentru colonul stâng. Procedura debutează cu retracția cranială și spre dreapta a colonului sigmoid pentru a expune rădăcina mezosigmoidului. Se incizează peritoneul la baza mezosigmoidului, medial de traiectul venei mezenterice inferioare (VMI). VMI este adesea primul reper vascular identificat și ligaturat, de obicei la nivelul marginii inferioare a pancreasului sau la joncțiunea cu vena splenică. Ulterior, se identifică artera mezenterică inferioară (AMI). Disecția progresează de-a lungul planului avascular Toldt, medial de VMI, eliberând mezocolonul de pe fascia prerenală și de pe structurile retroperitoneale subiacente, cum ar fi mușchiul psoas, ureterul stâng și vasele gonadale, care trebuie identificate și prezervate cu grijă. Ligatura AMI se efectuează fie la originea sa din aortă (ligatură înaltă), fie selectiv, distal de emergența arterei colice stângi, în funcție de strategia aleasă și de localizarea tumorii.[7] Mobilizarea flexurii splenice este o etapă frecvent necesară, în special pentru tumorile colonului descendent proximal sau ale flexurii splenice însăși, și rămâne una dintre cele mai dificile etape ale colectomiei stângi, necesitând o disecție atentă a atașamentelor peritoneale și omentale.[3] Abordul medial-lateral oferă o expunere bună a rădăcinii AMI și a structurilor retroperitoneale cheie, facilitând o limfadenectomie centrală controlată.</p>
+                <p class="text-stone-600 mt-2">Dificultatea mobilizării flexurii splenice în CME pentru tumorile de colon stâng proximal sau transvers distal rămâne un factor limitant major, chiar și cu utilizarea platformei robotice. Această etapă necesită adesea o disecție extinsă și poate crește timpul operator și riscul de leziuni. Flexura splenică este fixată de ligamentul frenocolic și are raporturi anatomice strânse cu splina și coada pancreasului.[25] Mobilizarea sa completă, esențială pentru o CME adecvată în această regiune [3], este recunoscută ca una dintre cele mai complexe etape ale colectomiei stângi. Deși platforma robotică poate oferi avantaje prin vizualizarea îmbunătățită și instrumentele articulate [7], complexitatea anatomică intrinsecă și riscul de lezare a splinei sau a cozii pancreasului persistă.[8]</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">V. CME Robotică pentru Colonul Stâng</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Argumente pro utilizării CME robotice (colon stâng) (1/2)</h3>
+                <p class="text-stone-600 mb-2">Aplicarea tehnologiei robotice în CME pentru cancerele de colon stâng aduce o serie de avantaje potențiale, similare celor observate în chirurgia colonului drept, dar cu unele particularități legate de specificul anatomic al acestei regiuni.</p>
+                <p class="text-stone-600 mb-2"><strong>Limfadenectomie și calitate specimen:</strong> Platforma robotică, prin vizualizarea superioară și precizia instrumentelor, poate facilita o disecție mai meticuloasă a ganglionilor limfatici de-a lungul AMI și la originea acesteia, potențial conducând la un număr mai mare de ganglioni recoltați comparativ cu laparoscopia tradițională.[11] Respectarea planurilor embriologice este, de asemenea, facilitată, contribuind la obținerea unui specimen cu mezocolon intact.[7]</p>
+                <p class="text-stone-600 mt-3 mb-2"><strong>Rezultate perioperatorii:</strong> Similar chirurgiei colonului drept, unele studii sugerează că R-CME pentru colonul stâng poate fi asociată cu rate de conversie la chirurgia deschisă mai mici, pierderi de sânge intraoperatorii reduse și o durată de spitalizare mai scurtă comparativ cu laparoscopia sau chirurgia deschisă.[11] Facilitarea realizării anastomozei intracorporeale, în special pentru anastomozele colorectale joase, este un alt avantaj important.[16]</p>
+            </div>
+            
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">V. CME Robotică pentru Colonul Stâng</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Argumente pro utilizării CME robotice (colon stâng) (2/2)</h3>
+                <p class="text-stone-600 mb-2"><strong>Prezervarea nervilor autonomi:</strong> Vizualizarea 3D mărită și stabilitatea platformei robotice, împreună cu dexteritatea instrumentelor EndoWrist™, pot permite o identificare mai precisă și o disecție mai atentă a plexului nervos hipogastric superior, care este vulnerabil în timpul disecției la rădăcina AMI și în pelvisul mic pentru tumorile sigmoidorectale. O mai bună prezervare a acestor nervi poate reduce incidența disfuncțiilor urinare și sexuale postoperatorii, un aspect important pentru calitatea vieții pacienților.[14] În chirurgia robotică a colonului sigmoid, prezervarea nervilor hipogastrici reprezintă un avantaj potențial major, având în vedere impactul semnificativ al disfuncțiilor sexuale și urinare asupra calității vieții pacienților. Disecția la rădăcina AMI și de-a lungul promontoriului pentru tumorile sigmoidiene pune în pericol nervii hipogastrici.[94] Vizualizarea 3D mărită și mișcările fine ale instrumentelor robotice [14] pot permite o identificare și o disecție mai atentă a acestor structuri nervoase delicate, comparativ cu laparoscopia tradițională, unde vizualizarea și unghiurile de lucru pot fi limitate în pelvisul îngust.</p>
+                <p class="text-stone-600 mt-3 mb-2"><strong>Rezultate oncologice:</strong> Deși datele pe termen lung specifice pentru R-CME de colon stâng sunt încă în curs de acumulare, principiile oncologice ale CME sugerează beneficii similare celor observate în cancerul rectal și cel de colon drept, în ceea ce privește controlul local al bolii și supraviețuirea.[15] Avantajele robotului în spațiul pelvin îngust, relevant pentru tumorile de sigmoid și joncțiune rectosigmoidiană, sunt adesea citate ca fiind mai pronunțate decât în chirurgia colonului drept, datorită accesului și manevrabilității îmbunătățite.</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">V. CME Robotică pentru Colonul Stâng</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Argumente contra și provocări (colon stâng)</h3>
+                 <p class="text-stone-600 mb-2">Chiar și cu avantajele tehnologiei robotice, R-CME pentru colonul stâng prezintă o serie de provocări și potențiale dezavantaje.</p>
+                <ul class="list-disc list-inside text-stone-600 space-y-2">
+                    <li><strong>Timp operator:</strong> Similar cu R-CME pe dreapta, timpul operator poate fi mai lung, în special în faza inițială a curbei de învățare a chirurgului și a echipei.[11]</li>
+                    <li><strong>Costuri:</strong> Costurile ridicate ale sistemului robotic și ale instrumentarului de unică folosință rămân o preocupare majoră.[15]</li>
+                    <li><strong>Dificultatea mobilizării flexurii splenice:</strong> Aceasta rămâne o etapă tehnic solicitantă, chiar și cu ajutorul robotului, datorită variabilității anatomice și a raporturilor strânse cu splina și pancreasul.[7]</li>
+                    <li><strong>Riscul de leziune ureterală:</strong> Ureterul stâng este situat în imediata apropiere a câmpului operator în timpul disecției pediculului AMI și a mobilizării colonului descendent și sigmoid, fiind vulnerabil la leziuni accidentale.[7]</li>
+                    <li><strong>Lipsa dovezilor de nivel 1 pe termen lung:</strong> Similar situației de la colonul drept, sunt necesare mai multe studii randomizate controlate pentru a stabili definitiv superioritatea R-CME pentru colonul stâng în termeni de rezultate oncologice pe termen lung și raport cost-eficiență.[15]</li>
+                    <li>Decizia privind nivelul de ligaturare a AMI (înaltă versus joasă, cu sau fără prezervarea ACS) în CME pentru colonul stâng este puternic influențată de variațiile anatomice ale ACS și ale arcadelor colaterale. Aceasta necesită o strategie adaptată pentru a echilibra radicalitatea oncologică cu riscul de ischemie. Variațiile în originea ACS din AMI și prezența sau absența unui arc Riolan funcțional [51] sunt critice. O ligatură înaltă a AMI [48] asigură o limfadenectomie centrală maximă, dar poate compromite vascularizația anastomozei dacă ACS are o origine joasă sau dacă arcadele vasculare colaterale sunt deficitare.[52] Imagistica preoperatorie avansată [54] și utilizarea intraoperatorie a verdelui de indocianină (ICG) [61] devin instrumente esențiale pentru a ghida această decizie complexă. Conceptele de "fereastră sigură" și "triunghi periculos", descrise în contextul anatomiei vasculare a colonului stâng [61], sunt deosebit de utile pentru planificarea disecției și minimizarea riscurilor vasculare. Deși robotul poate facilita anumite etape ale intervenției, provocările tehnice intrinseci ale colectomiei stângi cu CME persistă și necesită o abordare chirurgicală experimentată și prudentă.</li>
+                </ul>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">VI. Incidente Intraoperatorii în CME Robotică (Colon Drept și Stâng): Analiză Detaliată și Strategii de Management</h2>
+                <p class="text-stone-600 mb-3">Realizarea exciziei mezocolice complete robotice, deși oferă avantaje în ceea ce privește vizualizarea și precizia, nu este lipsită de riscuri intraoperatorii. Complexitatea disecției extinse în jurul structurilor vasculare majore și variabilitatea anatomică individuală pot predispune la o serie de incidente. Riscul de leziuni vasculare în CME este direct proporțional cu gradul de variabilitate anatomică și invers proporțional cu acuratețea identificării preoperatorii și intraoperatorii a acestei variabilități. Variațiile frecvente ale arterei colice drepte, trunchiului Henle, arterei colice stângi și arcadelor vasculare creează "capcane" anatomice. Fără o "hartă" preoperatorie detaliată, obținută de exemplu prin angio-CT 3D [54], și o navigație intraoperatorie precisă, augmentată eventual de vizualizarea robotică superioară și tehnici precum ICG [61], chirurgul poate naviga "în orb" în zone cu risc înalt. Leziunile vasculare [1] sunt adesea rezultatul unei disecții într-un plan anatomic greșit sau al confuziei unei structuri vasculare variante cu una considerată normală.</p>
+                <p class="text-stone-600 mb-3">Deși platforma robotică oferă avantaje tehnice considerabile, "factorul uman" – experiența chirurgicală, judecata clinică matură și managementul eficient al curbei de învățare – rămâne determinant pentru prevenirea și gestionarea cu succes a incidentelor intraoperatorii. Tehnologia robotică [17] poate compensa unele limitări umane, cum ar fi tremorul sau oboseala, dar nu poate înlocui cunoașterea anatomică profundă, abilitatea de a recunoaște țesuturile subtile și de a lua decizii critice sub presiune. Curba de învățare pentru R-CME este semnificativă [8], iar majoritatea complicațiilor, inclusiv defecțiunile tehnice ale sistemului [24], necesită o intervenție rapidă și competentă din partea chirurgului.</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">VI. Incidente Intraoperatorii</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Leziuni Vasculare: Arteriale și venoase (VMS/AMS și ramificațiile lor, trunchiul Henle, arcadele vasculare – Drummond, Riolan)</h3>
+                <p class="text-stone-600 mb-2"><strong>Incidență și Mecanisme:</strong> Leziunile venei mezenterice superioare (VMS) sau ale ramurilor sale arteriale și venoase sunt printre cele mai frecvente și, totodată, cele mai temute complicații intraoperatorii, în special în timpul CME pentru cancerul de colon drept, datorită disecției extinse în proximitatea axului vascular mezenteric.[1] Aceste leziuni pot apărea în timpul limfadenectomiei centrale, la ligatura pediculilor vasculari principali (ileocolic, colic drept, colic mediu) sau accidental, prin tracțiune excesivă, identificarea incorectă a planurilor de disecție sau nerecunoașterea unor variante anatomice.[7] Studiul randomizat controlat RELARC a indicat un risc potențial crescut de leziuni vasculare în timpul CME laparoscopice comparativ cu disecția D2 standard, subliniind dificultatea tehnică a procedurii.[11]</p>
+                <p class="text-stone-600 mb-2"><strong>Factori de risc:</strong> Prezența unor variații anatomice vasculare neidentificate preoperator (ex. origine atipică a arterei colice drepte, variante ale trunchiului Henle) [44], obezitatea (care poate îngreuna identificarea reperelor), prezența aderențelor dense, inflamația acută sau cronică și, nu în ultimul rând, experiența limitată a chirurgului cu tehnica CME sau cu platforma robotică.</p>
+                <p class="text-stone-600 mt-3 mb-2"><strong>Recunoaștere și Management:</strong> Semnele intraoperatorii ale unei leziuni vasculare includ sângerare activă, care poate fi arterială (pulsatilă, roșu aprins) sau venoasă (continuă, roșu închis), și formarea unui hematom în expansiune la nivelul mezenterului sau retroperitoneului. Recunoașterea promptă este crucială. Managementul imediat implică aplicarea unei presiuni digitale sau cu un instrument atraumatic pentru controlul temporar al sângerării, identificarea clară a sursei și a extinderii leziunii, și obținerea controlului vascular proximal și distal față de leziune. Reparația vasculară poate fi tentată robotic, prin sutură directă (facilitată de dexteritatea instrumentelor robotice) sau prin aplicarea de clipuri vasculare, în funcție de tipul și dimensiunea leziunii. În caz de sângerare masivă, necontrolabilă robotic, sau de leziuni complexe, conversia rapidă la chirurgia deschisă este mandatorie pentru a asigura hemostaza și siguranța pacientului.[87]</p>
+                <p class="text-stone-600 mt-2"><strong>Rata de sângerare raportată în meta-analize (RCME vs LC):</strong> Majoritatea meta-analizelor care compară R-CME cu L-CME nu raportează diferențe semnificative statistic în ceea ce privește rata de sângerare postoperatorie sau necesitatea de transfuzii.[11] De exemplu, o meta-analiză a raportat un OR de 1.90 (95% CI [0.64, 5.58], p=0.25) pentru sângerare în R-CME versus LC, indicând absența unei diferențe semnificative.</p>
+                 <p class="text-stone-600 mt-2">Deși platforma robotică oferă o vizualizare 3D mărită și instrumente articulate care, teoretic, ar trebui să minimizeze riscul de leziuni vasculare, complexitatea intrinsecă a disecției centrale în CME, în special în prezența variațiilor anatomice, menține acest risc la un nivel considerabil.</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">VI. Incidente Intraoperatorii</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Tabelul 3: Incidența, Cauzele și Managementul Principalelor Leziuni Vasculare Intraoperatorii în CME Robotică pentru Colonul Drept și Stâng</h3>
+                <div class="table-container overflow-x-auto mt-3">
+                    <table class="min-w-full divide-y divide-stone-200 border border-stone-300">
+                        <thead class="bg-stone-50">
+                            <tr>
+                                <th class="px-2 py-2 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">Tip Leziune</th>
+                                <th class="px-2 py-2 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">Segment Colic</th>
+                                <th class="px-2 py-2 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">Mecanism</th>
+                                <th class="px-2 py-2 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">Factori Risc Anatomici</th>
+                                <th class="px-2 py-2 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">Semne Recunoaștere</th>
+                                <th class="px-2 py-2 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">Management Robotic/Conversie</th>
+                                <th class="px-2 py-2 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">Prevenire</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-stone-200 text-sm text-stone-600">
+                            <tr>
+                                <td class="px-2 py-1">Leziune VMS/ramuri</td>
+                                <td class="px-2 py-1">Drept</td>
+                                <td class="px-2 py-1">Tracțiune, plan greșit</td>
+                                <td class="px-2 py-1">Variante Tr. Henle, traiect ant. AIC/ACD</td>
+                                <td class="px-2 py-1">Sângerare venoasă masivă, hematom</td>
+                                <td class="px-2 py-1">Compresie, sutură/clipare robotică. Conversie rapidă.</td>
+                                <td class="px-2 py-1">Disecție "SMV-first", Angio-CT. ([1])</td>
+                            </tr>
+                            <tr>
+                                <td class="px-2 py-1">Leziune AMS/ramuri</td>
+                                <td class="px-2 py-1">Drept</td>
+                                <td class="px-2 py-1">Similar VMS, lez. termică</td>
+                                <td class="px-2 py-1">Origine joasă AMS, var. emergență</td>
+                                <td class="px-2 py-1">Sângerare arterială, ischemie</td>
+                                <td class="px-2 py-1">Control prox/dist, sutură. Conversie frecventă.</td>
+                                <td class="px-2 py-1">Identificare clară AMS. Prudență energie. ([17])</td>
+                            </tr>
+                            <tr>
+                                <td class="px-2 py-1">Leziune Trunchi Henle</td>
+                                <td class="px-2 py-1">Drept</td>
+                                <td class="px-2 py-1">Disecție agresivă pancreas</td>
+                                <td class="px-2 py-1">Variante multiple trunchi</td>
+                                <td class="px-2 py-1">Sângerare venoasă persistentă</td>
+                                <td class="px-2 py-1">Clipare selectivă/sutură. Atenție duct pancreatic.</td>
+                                <td class="px-2 py-1">Angio-CT, abord "top-down". ([8])</td>
+                            </tr>
+                            <tr>
+                                <td class="px-2 py-1">Leziune A/V Colică Dr/Medie/Ileocolică</td>
+                                <td class="px-2 py-1">Drept</td>
+                                <td class="px-2 py-1">Identif. incorectă, avulsie</td>
+                                <td class="px-2 py-1">Absență ACD, origine comună</td>
+                                <td class="px-2 py-1">Sângerare localizată pedicul</td>
+                                <td class="px-2 py-1">Re-ligaturare robotică.</td>
+                                <td class="px-2 py-1">Angio-CT, disecție pas cu pas. ([8])</td>
+                            </tr>
+                            <tr>
+                                <td class="px-2 py-1">Leziune AMI/VMI sau ramuri</td>
+                                <td class="px-2 py-1">Stâng</td>
+                                <td class="px-2 py-1">Disecție dificilă origine AMI</td>
+                                <td class="px-2 py-1">Variante origine AMI, traiect VMI</td>
+                                <td class="px-2 py-1">Sângerare retroperitoneală</td>
+                                <td class="px-2 py-1">Control vascular, clipare/sutură. Conversie.</td>
+                                <td class="px-2 py-1">Identificare clară aortă/AMI/VMI. ([7])</td>
+                            </tr>
+                            <tr>
+                                <td class="px-2 py-1">Leziune Arcade Vasculare</td>
+                                <td class="px-2 py-1">Drept/Stâng</td>
+                                <td class="px-2 py-1">Disecție prea aproape perete colic</td>
+                                <td class="px-2 py-1">Arcade subțiri, incomplete</td>
+                                <td class="px-2 py-1">Sângerare mezenter, ischemie</td>
+                                <td class="px-2 py-1">Clipare, sutură. Evaluare ICG.</td>
+                                <td class="px-2 py-1">Disecție la distanță. ICG. ([34])</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                 <p class="text-xs text-stone-500 mt-1">Notă: Numerele din paranteze se referă la bibliografia generală.</p>
+            </div>
+            
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">VI. Incidente Intraoperatorii</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Leziuni ale Nervilor Autonomi (Plex mezenteric superior, plex hipogastric)</h3>
+                <p class="text-stone-600 mb-2"><strong>Consecințe:</strong> Lezarea fibrelor nervoase autonome în timpul disecției limfadenice centrale poate duce la disfuncții digestive postoperatorii, cea mai frecventă fiind diareea persistentă, în special după rezecțiile de colon drept extinse care implică o disecție largă la rădăcina AMS.[3] În chirurgia colonului stâng și a sigmoidului, lezarea plexului hipogastric superior și a nervilor hipogastrici poate cauza disfuncții vezicale (retenție urinară, incontinență) și sexuale (disfuncție erectilă, tulburări de ejaculare la bărbați; disfuncții sexuale la femei), având un impact semnificativ asupra calității vieții.[14]</p>
+                <p class="text-stone-600 mt-3 mb-2"><strong>Tehnici de prezervare:</strong> O tehnică meticuloasă, care respectă planurile anatomice și identifică structurile nervoase, este esențială. Pentru colonul drept, s-a propus tehnica disecției "stratului celui mai extern al nervului autonom" ("outermost layer of the autonomic nerve") de-a lungul AMS. Aceasta implică separarea țesutului limfo-adipos de teaca nervoasă propriu-zisă a AMS, permițând o limfadenectomie radicală fără a leza direct fibrele nervoase. Studiile inițiale sugerează că această tehnică nu compromite radicalitatea oncologică și nu se asociază cu diaree postoperatorie.[93] Pentru colonul stâng, identificarea și disecția atentă a planurilor în jurul originii AMI și de-a lungul promontoriului sacrat, cu vizualizarea și protejarea nervilor hipogastrici, sunt cruciale.[94] Vizualizarea 3D mărită și stabilitatea oferite de platforma robotică pot facilita această disecție de finețe.[14]</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">VI. Incidente Intraoperatorii</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Leziuni Ureterale (în special pentru colonul stâng)</h3>
+                <p class="text-stone-600 mb-2"><strong>Incidență:</strong> Leziunile ureterale sunt complicații relativ rare, dar cu potențial sever. Incidența generală în chirurgia colorectală variază între 0.28% și 0.44%.[67] Riscul este considerabil mai mare în intervențiile chirurgicale pentru cancerul rectal și sigmoidectomii, datorită proximității anatomice a ureterului stâng de mezosigmoid și de pediculul vascular al AMI.[67]</p>
+                <p class="text-stone-600 mb-2"><strong>Factori de risc:</strong> Anatomia pelvină dificilă (pelvis îngust, obezitate), tumorile voluminoase care distorsionează anatomia normală, prezența inflamației acute sau cronice (ex. diverticulită complicată), aderențele postoperatorii sau post-radioterapie, și, nu în ultimul rând, variațiile anatomice ureterale (ex. duplicație ureterală, ureter ectopic, ureter deplasat medial de o masă tumorală sau de țesut adipos retroperitoneal abundent) pot crește riscul de leziune.[66]</p>
+                <p class="text-stone-600 mb-2"><strong>Strategii de identificare și prevenire:</strong> Identificarea vizuală precoce și certă a ureterului este cea mai importantă măsură de prevenire. Ureterul stâng trebuie identificat la nivelul încrucișării cu vasele iliace și urmărit pe traiectul său cranial și caudal, pe măsură ce disecția progresează. Utilizarea stenturilor ureterale profilactice ("JJ stent") este o practică controversată; deși poate facilita identificarea ureterului prin palpare (mai puțin relevant în robotică) sau vizualizare, nu previne complet leziunea și poate fi asociată cu morbiditate proprie. Administrarea intravenoasă de coloranți precum albastrul de metilen sau verdele de indocianină (ICG) poate ajuta la identificarea unei eventuale scurgeri de urină în câmpul operator, semnalând o leziune.[66] Revizuirea atentă a imagisticii preoperatorii (CT, RMN) pentru a identifica eventuale anomalii ale tractului urinar este, de asemenea, importantă.[69]</p>
+                <p class="text-stone-600"><strong>Reparare:</strong> Dacă o leziune ureterală este recunoscută intraoperator, repararea primară este de preferat. Tipul de reparație depinde de localizarea și extinderea leziunii și poate include sutura directă termino-terminală peste un stent ureteral, ureteroneocistostomie (reimplantarea ureterului în vezica urinară) sau alte tehnici reconstructive mai complexe. Platforma robotică, prin vizualizare și dexteritate, poate facilita aceste reparații de finețe.[66]</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">VI. Incidente Intraoperatorii</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Leziuni ale Altor Organe Adiacente</h3>
+                <p class="text-stone-600 mb-2"><strong>Pancreas, duoden (colon drept):</strong> Aceste organe sunt la risc în timpul mobilizării flexurii hepatice, al manevrei Kocher (dacă este efectuată) sau în timpul disecției limfoganglionare la rădăcina mezenterului, în special în jurul capului pancreatic și al procesului uncinat.[3] O tehnică de disecție atentă, respectând planurile fasciale, este esențială. Aborduri precum cel "top-down" sau "Uncinatus First Approach" sunt concepute pentru a oferi o mai bună vizualizare și separare a acestor structuri de mezocolon.[26]</p>
+                <p class="text-stone-600 mb-2"><strong>Splină (colon stâng):</strong> Splina este vulnerabilă la leziuni (capsulare sau parenchimatoase) în timpul mobilizării flexurii splenice, în special dacă există aderențe dense sau tracțiune excesivă.[8]</p>
+                <p class="text-stone-600 mb-2"><strong>Intestin subțire:</strong> Ansele de intestin subțire pot fi lezate termic prin contactul cu instrumentele energetice sau direct, prin manipulare neatentă în timpul disecției sau al retracției.[8] Un studiu a raportat un caz de leziune de intestin subțire în timpul R-CME pentru colon drept, necesitând reintervenție.[8]</p>
+                <p class="text-stone-600"><strong>Management:</strong> Recunoașterea promptă a leziunii și repararea primară, dacă este posibilă și sigură, reprezintă conduita optimă. Leziunile pancreatice pot fi deosebit de grave, cu risc de fistulă pancreatică. Leziunile splenice pot necesita splenectomie dacă sângerarea nu poate fi controlată conservator.</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">VI. Incidente Intraoperatorii</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Scurgeri Limfatice (Chiloase)</h3>
+                <p class="text-stone-600 mb-2"><strong>Cauze:</strong> Scurgerile limfatice, manifestate clinic ca ascită chiloasă sau chilotorax (dacă limfa ajunge în cavitatea pleurală), sunt cauzate de lezarea vaselor limfatice mari, în special a cisternei chyli sau a trunchiurilor limfatice majore, în timpul limfadenectomiei centrale extinse la rădăcina mezenterului sau de-a lungul aortei și venei cave.[1]</p>
+                <p class="text-stone-600 mb-2"><strong>Prevenire și Management:</strong> Prevenirea constă în identificarea și cliparea atentă a țesutului limfatic la rădăcina vaselor mezenterice și în jurul marilor vase. Unii chirurgi recomandă utilizarea de agenți de sigilare tisulară. Dacă apare o scurgere chiloasă postoperator, managementul este inițial conservator și include drenaj paracentesis (dacă este necesar), dietă cu trigliceride cu lanț mediu (MCT) sau nutriție parenterală totală (NPT) pentru a reduce producția de chil, și administrarea de octreotid sau somatostatină. Reintervenția chirurgicală pentru ligaturarea directă a sursei de scurgere este rar necesară și este rezervată cazurilor refractare la tratamentul conservator. În studiul care a descris tehnica "outermost layer" pentru prezervarea nervilor în R-CME pe dreapta, nu s-au raportat cazuri de scurgeri chiloase.[93]</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">VI. Incidente Intraoperatorii</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Dificultăți Tehnice Specifice Platformei Robotice</h3>
+                <p class="text-stone-600 mb-2"><strong>Defecțiuni ale sistemului:</strong> Deși sistemele robotice moderne sunt fiabile, defecțiunile tehnice pot apărea și sunt raportate cu o incidență mică, estimată între 0.1% și 0.5%.[24] Acestea pot include probleme cu brațele robotice (blocare, mișcări necontrolate – deși sistemele de siguranță ar trebui să prevină acest lucru), defecțiuni ale camerei (imagine neclară, pierderea imaginii), probleme cu consola chirurgului sau cu instrumentele. Astfel de defecțiuni pot prelungi durata operației sau, în cazuri rare, pot necesita conversia la o altă tehnică chirurgicală (laparoscopică sau deschisă).[24]</p>
+                <p class="text-stone-600 mb-2"><strong>Erori de operare:</strong> Acestea sunt mai frecvente în timpul curbei de învățare a chirurgului și a echipei și pot include andocarea incorectă a robotului, coliziuni între brațele robotice, utilizarea inadecvată a instrumentelor sau dificultăți în coordonarea mișcărilor.[16]</p>
+                <p class="text-stone-600"><strong>Lipsa feedback-ului haptic (tactil):</strong> Aceasta este o limitare intrinsecă a majorității platformelor robotice actuale. Chirurgul nu simte direct rezistența țesuturilor, ceea ce poate duce la aplicarea unei forțe excesive în timpul disecției sau suturilor, cu risc de rupere a țesuturilor delicate sau de slăbire a nodurilor. De asemenea, poate îngreuna identificarea unor structuri prin palpare, cum ar fi pulsul arterial sau consistența unui ganglion limfatic.[16] Chirurgii compensează această lipsă prin indicii vizuale (deformarea țesuturilor, sângerarea) și prin experiență.</p>
+            </div>
+            
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">VI. Incidente Intraoperatorii</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Strategii Generale de Prevenire și Management al Incidentelor</h3>
+                <p class="text-stone-600 mb-2">O abordare proactivă, care combină planificarea avansată cu tehnologia intraoperatorie și o tehnică chirurgicală riguroasă, este cheia minimizării incidentelor intraoperatorii în R-CME.</p>
+                <p class="text-stone-600 mb-2"><strong>Planificarea preoperatorie:</strong> Utilizarea angio-CT 3D este considerată din ce în ce mai mult un standard în planificarea CME, în special pentru colonul drept, datorită marii variabilități vasculare. Aceasta permite identificarea precisă a originii și traiectului vaselor principale (AMS, VMS, AIC, ACD, ACM, trunchiul Henle), a variantelor anatomice și a relațiilor acestora cu tumora și structurile adiacente. O astfel de "hartă" vasculară personalizată permite chirurgului să anticipe potențialele dificultăți, să planifice strategia de abordare și ligaturare vasculară și să reducă riscul de leziuni accidentale.[53] Studiile au demonstrat că utilizarea navigației preoperatorii bazate pe reconstrucții CT poate reduce semnificativ pierderea de sânge intraoperatorie, poate scurta timpul operator și poate crește numărul de ganglioni limfatici recoltați.[54]</p>
+                <p class="text-stone-600 mt-3 mb-2"><strong>Utilizarea intraoperatorie a verdelui de indocianină (ICG):</strong> ICG administrat intravenos și vizualizat cu ajutorul unei camere cu fluorescență în infraroșu apropiat (NIR) este un instrument valoros în chirurgia colorectală robotică. Principalele sale aplicații în contextul CME includ:
+                <ul class="list-disc list-inside text-stone-600 space-y-1 ml-4">
+                    <li>Evaluarea perfuziei intestinale: După realizarea anastomozei, ICG poate confirma o vascularizație adecvată a capetelor anastomotice, ajutând la prevenirea fistulelor anastomotice ischemice.[105]</li>
+                    <li>Identificarea vaselor și a variantelor anatomice: Deși mai puțin utilizat pentru cartografierea arterială primară (care se bazează mai mult pe disecție și repere anatomice), ICG poate ajuta la confirmarea fluxului în anumite vase sau la identificarea unor surse de sângerare oculte.[61]</li>
+                    <li>Ghidarea limfadenectomiei (limfografie cu ICG): Prin injectarea peritumorală de ICG, se poate vizualiza drenajul limfatic și se pot identifica ganglionii santinelă sau grupele ganglionare relevante, deși această aplicație este mai mult în stadiu de cercetare pentru CME colonică.[105]</li>
+                    <li>ICG poate ajuta la definirea intraoperatorie a "ferestrelor sigure" și a "triunghiurilor periculoase" în chirurgia colonului stâng, ghidând disecția în zonele cu anatomie vasculară complexă.[61]</li>
+                </ul>
+                <p class="text-stone-600 mt-3"><strong>Aderența la tehnici meticuloase de disecție:</strong> Aceasta rămâne piatra de temelie a prevenirii incidentelor. Include respectarea strictă a planurilor embriologice avasculare (disecția în fascia Toldt), utilizarea predominantă a disecției ascuțite ("sharp dissection"), manipularea atraumatică a țesuturilor pentru a evita rupturile mezenterice sau leziunile seroase, și identificarea clară și fără echivoc a tuturor structurilor anatomice, în special a celor vasculare și nervoase, înainte de orice manevră de ligaturare sau secționare.[2]</p>
+                 <p class="text-stone-600 mt-2">Există o tendință clară către o abordare multimodală pentru creșterea siguranței în R-CME. Aceasta combină planificarea preoperatorie avansată (angio-CT 3D), tehnologii intraoperatorii de augmentare a vizualizării (ICG) și tehnici chirurgicale din ce în ce mai rafinate (de exemplu, disecția "stratului celui mai extern al nervului autonom" pentru prezervarea nervilor). Conștientizarea riscurilor asociate cu CME [12] și cu variabilitatea anatomică a condus la dezvoltarea și adoptarea acestor strategii complementare. Această abordare integrată sugerează o evoluție către o chirurgie CME mai personalizată, mai precisă și, în ultimă instanță, mai sigură pentru pacient.</p>
+            </div>
+             <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">VI. Incidente Intraoperatorii</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Ratele de Conversie la Chirurgia Deschisă</h3>
+                 <p class="text-stone-600 mb-2"><strong>Incidență:</strong> Unul dintre avantajele frecvent citate ale platformei robotice în chirurgia colorectală complexă, inclusiv CME, este rata de conversie la chirurgia deschisă mai mică comparativ cu abordul laparoscopic. Majoritatea studiilor și meta-analizelor raportează rate de conversie scăzute pentru R-CME, adesea sub 5%, iar unele serii de cazuri din centre cu experiență raportează chiar 0% conversii.[7]</p>
+                <p class="text-stone-600 mt-3 mb-2"><strong>Motive:</strong> Motivele pentru conversia la chirurgia deschisă sunt variate și pot include:
+                <ul class="list-disc list-inside text-stone-600 space-y-1 ml-4">
+                    <li>Aderențe extensive care împiedică o disecție sigură și o vizualizare adecvată a planurilor anatomice.</li>
+                    <li>Sângerare intraoperatorie necontrolabilă prin mijloace minim invazive.</li>
+                    <li>Dificultăți majore de expunere sau identificare a structurilor anatomice cheie, cauzate de obezitatea morbidă a pacientului, de tumori foarte voluminoase care invadează structurile adiacente, sau de inflamație severă.</li>
+                    <li>Leziuni accidentale ale unor organe majore (ex. leziune de aortă, venă cavă, duoden, pancreas) care necesită o reparație complexă, mai sigură prin abord deschis.</li>
+                    <li>Defecțiuni iremediabile ale echipamentului robotic în timpul intervenției.</li>
+                    <li>Imposibilitatea de a realiza o rezecție oncologică R0 prin abord minim invaziv din cauza extinderii locale a tumorii.[87]</li>
+                </ul>
+                <p class="text-stone-600 mt-3">Rata scăzută de conversie în R-CME este un argument important în favoarea utilizării platformei robotice pentru aceste proceduri complexe, deoarece conversia la chirurgia deschisă este adesea asociată cu o morbiditate postoperatorie crescută și o recuperare mai lentă.</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">VII. Concluzii și Perspective</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Sinteza principalelor argumente pro și contra utilizării CME robotice pentru cancerele de colon drept și stâng</h3>
+                <p class="text-stone-600 mb-2">Chirurgia robotică pentru excizia mezocolică completă (R-CME) în tratamentul cancerului de colon drept și stâng reprezintă o evoluție tehnologică semnificativă, cu potențialul de a îmbunătăți standardele de îngrijire.</p>
+                <p class="text-stone-600 mb-2"><strong>Argumente Pro:</strong></p>
+                <ul class="list-disc list-inside text-stone-600 space-y-1 ml-4">
+                    <li>Calitate superioară a specimenului și limfadenectomie extinsă: Numeroase studii indică faptul că R-CME permite obținerea unui mezocolon intact și recoltarea unui număr mai mare de ganglioni limfatici comparativ cu tehnicile convenționale sau chiar laparoscopice non-CME, aspecte cruciale pentru stadializarea corectă și prognosticul oncologic.[11]</li>
+                    <li>Rate de conversie la chirurgia deschisă mai mici: Acesta este unul dintre cele mai consistente avantaje raportate, permițând unui număr mai mare de pacienți să beneficieze de avantajele chirurgiei minim invazive.[11]</li>
+                    <li>Potențial pentru pierderi de sânge reduse și spitalizare mai scurtă: Deși nu universal demonstrate, unele studii sugerează aceste beneficii, contribuind la o recuperare postoperatorie mai rapidă.[10]</li>
+                    <li>Facilitarea anastomozei intracorporeale: Dexteritatea instrumentelor robotice simplifică realizarea anastomozei în interiorul cavității abdominale, evitând necesitatea unei minilaparotomii mai mari pentru exteriorizarea anselor.[18]</li>
+                    <li>Vizualizare și dexteritate îmbunătățite: Imaginea 3D mărită și instrumentele articulate permit o disecție mai precisă în spații anatomice dificile și în apropierea structurilor vasculare și nervoase delicate, esențială pentru CME și pentru prezervarea nervilor autonomi (în special în chirurgia colonului stâng).[8]</li>
+                    <li>Potențial pentru rezultate oncologice pe termen lung mai bune: Deși necesită confirmare prin studii randomizate controlate (RCT) cu urmărire îndelungată, principiile CME și îmbunătățirea parametrilor patologici sugerează un posibil impact pozitiv asupra supraviețuirii.[84]</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">VII. Concluzii și Perspective (continuare)</h2>
+                 <h3 class="text-xl font-medium text-stone-700 mb-3">Sinteza principalelor argumente pro și contra (continuare)</h3>
+                <p class="text-stone-600 mt-3 mb-2"><strong>Argumente Contra și provocările</strong> sunt legate de complexitatea procedurii și de resursele necesare:</p>
+                <ul class="list-disc list-inside text-stone-600 space-y-1 ml-4">
+                    <li>Timp operator potențial mai lung: În special în curba de învățare și în cazurile complexe, R-CME poate necesita un timp operator mai îndelungat.[10]</li>
+                    <li>Costuri mai mari: Achiziția și întreținerea sistemului robotic, precum și costul instrumentelor de unică folosință, generează costuri totale mai ridicate.[10]</li>
+                    <li>Curbă de învățare abruptă: Stăpânirea R-CME necesită un training specific și un număr considerabil de cazuri pentru atingerea competenței.[8]</li>
+                    <li>Riscuri intrinseci ale disecției centrale extinse: Chiar și cu avantajele robotului, disecția în apropierea marilor vase (VMS/AMS, AMI, trunchiul Henle) implică riscuri de leziuni vasculare și sângerare. De asemenea, există riscul de scurgeri limfatice.[1]</li>
+                    <li>Lipsa feedback-ului haptic: Poate îngreuna aprecierea tensiunii tisulare și identificarea structurilor prin palpare.[16]</li>
+                    <li>Necesitatea unor dovezi de nivel înalt pe termen lung: Deși promițătoare, superioritatea oncologică definitivă a R-CME față de alte abordări necesită încă validare prin RCT-uri ample.</li>
+                </ul>
+                <p class="text-stone-600 mt-2">Balanța actuală între argumentele pro și contra sugerează că R-CME este o tehnică avansată cu un potențial oncologic superior, dar care necesită investiții semnificative în tehnologie și training, precum și o selecție atentă a cazurilor, cel puțin până la maturarea completă a dovezilor științifice pe termen lung. Beneficiile în ceea ce privește calitatea specimenului și numărul de ganglioni recoltați sunt destul de consistente în literatura de specialitate.[11] Reducerea ratei de conversie la chirurgia deschisă [11] este, de asemenea, un avantaj important al abordului robotic. Cu toate acestea, costurile [10] și timpul operator [10] rămân bariere semnificative în calea adoptării pe scară largă, iar dovezile privind supraviețuirea pe termen lung, deși promițătoare în unele studii [84], nu sunt încă definitive la nivel de studii randomizate controlate.</p>
+            </div>
+
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">VII. Concluzii și Perspective</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Evaluarea critică a dovezilor actuale privind siguranța, fezabilitatea și rezultatele oncologice</h3>
+                <p class="text-stone-600 mb-2">Dovezile actuale, provenind în majoritate din studii retrospective, serii de cazuri și câteva studii comparative non-randomizate sau meta-analize ale acestora, indică faptul că R-CME este o procedură sigură și fezabilă atunci când este efectuată în centre cu experiență și de către chirurgi antrenați corespunzător.[1] Ratele de morbiditate și mortalitate postoperatorie sunt comparabile sau chiar mai mici decât cele raportate pentru chirurgia laparoscopică sau deschisă convențională, în special în ceea ce privește complicațiile legate de plagă și recuperarea postoperatorie.</p>
+                <p class="text-stone-600">Beneficiile oncologice pe termen lung sunt încă subiect de dezbatere și necesită confirmare prin studii prospective randomizate de înaltă calitate, cu perioade lungi de urmărire. Deși îmbunătățirea parametrilor patologici (număr de ganglioni, integritatea mezocolonului, distanța de la tumoră la ligatura vasculară) este un argument puternic în favoarea CME, impactul direct asupra supraviețuirii pe termen lung în contextul specific al abordului robotic comparativ cu alte tehnici de CME (laparoscopică, deschisă) nu este pe deplin elucidat.[1]</p>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">VII. Concluzii și Perspective</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Recomandări bazate pe dovezi pentru optimizarea tehnicilor de CME robotică și minimizarea riscurilor intraoperatorii, cu accent pe managementul variațiilor anatomice</h3>
+                <p class="text-stone-600 mb-2">Pentru a maximiza beneficiile R-CME și a minimiza riscurile inerente, este esențială o abordare "personalizată", care integrează evaluarea detaliată a anatomiei individuale (prin imagistică avansată) cu flexibilitatea oferită de platforma robotică pentru a adapta tehnica chirurgicală. Având în vedere frecvența mare a variațiilor anatomice și riscurile asociate, o abordare standardizată rigidă este suboptimală.</p>
+                <ul class="list-disc list-inside text-stone-600 space-y-2">
+                    <li><strong>Planificare preoperatorie riguroasă:</strong> Utilizarea de rutină a angio-CT 3D este puternic recomandată pentru identificarea precisă a anatomiei vasculare individuale, inclusiv a variantelor de origine și traiect ale arterelor și venelor colice, a configurației trunchiului Henle și a particularităților arcadelor vasculare. Această "hartă" preoperatorie permite anticiparea dificultăților și planificarea optimă a strategiei chirurgicale.[53]</li>
+                    <li><strong>Utilizarea tehnologiilor intraoperatorii de augmentare:</strong> Fluorescența cu verde de indocianină (ICG) poate fi un instrument valoros pentru evaluarea în timp real a perfuziei intestinale după anastomoză și, în unele cazuri, pentru ghidarea disecției vasculare sau limfatice, ajutând la identificarea structurilor și la confirmarea viabilității țesuturilor.[61]</li>
+                    <li><strong>Alegerea individualizată a abordului chirurgical:</strong> Chirurgul trebuie să fie familiarizat cu multiple tehnici de abord robotic (medial-lateral, cranio-caudal, bottom-up, UFA) și să aleagă cea mai potrivită strategie în funcție de localizarea tumorii, de anatomia specifică a pacientului (identificată preoperator) și de propria experiență.</li>
+                    <li><strong>Disecție meticuloasă și respectarea principiilor oncologice:</strong> Indiferent de abordul ales, disecția trebuie să fie precisă, atraumatică, respectând planurile embriologice ("holy planes") și asigurând identificarea clară a tuturor structurilor vasculare și nervoase înainte de orice manevră de secționare sau ligaturare.</li>
+                    <li><strong>Training structurat și proctoring:</strong> Având în vedere complexitatea tehnică și curba de învățare abruptă, implementarea programelor de R-CME necesită un training structurat, supervizare (proctoring) și o abordare graduală, începând cu cazuri mai puțin complexe.</li>
+                </ul>
+            </div>
+
+            <div class="slide">
+                <h2 class="text-2xl font-semibold text-teal-600 mb-4">VII. Concluzii și Perspective</h2>
+                <h3 class="text-xl font-medium text-stone-700 mb-3">Direcții viitoare de cercetare în domeniul CME robotice</h3>
+                <p class="text-stone-600 mb-2">Domeniul R-CME este în continuă evoluție, iar cercetarea viitoare ar trebui să se concentreze pe consolidarea dovezilor și pe rafinarea tehnicii.</p>
+                <ul class="list-disc list-inside text-stone-600 space-y-2">
+                    <li><strong>Studii randomizate controlate (RCT) multicentrice:</strong> Sunt necesare RCT-uri de înaltă calitate care să compare R-CME cu L-CME și cu CME deschisă, evaluând nu doar rezultatele oncologice pe termen lung (supraviețuire generală, supraviețuire fără boală, rate de recurență), ci și rezultatele funcționale postoperatorii și calitatea vieții pacienților.</li>
+                    <li><strong>Analiza subgrupurilor de pacienți:</strong> Cercetarea ar trebui să identifice subgrupurile de pacienți și tipurile de tumori care beneficiază cel mai mult de pe urma preciziei și capabilităților specifice ale R-CME. Este posibil ca avantajele R-CME să fie mai pronunțate în cazuri complexe, cum ar fi pacienții obezi [5], cei cu pelvis îngust (relevant pentru cancerele de colon stâng/sigmoid) [16], tumorile localizate în proximitatea unor structuri vasculare majore sau la pacienții cu variații anatomice semnificative. Identificarea acestor nișe ar putea justifica mai bine costurile și efortul asociate cu R-CME.</li>
+                    <li><strong>Standardizarea tehnicilor și a protocoalelor de training:</strong> Dezvoltarea unor protocoale standardizate pentru diferitele aborduri R-CME și implementarea unor programe de training riguroase sunt cruciale pentru a asigura reproductibilitatea rezultatelor bune și pentru a reduce variabilitatea între chirurgi și centre.[8]</li>
+                    <li><strong>Dezvoltarea tehnologiilor robotice:</strong> Progresele viitoare în tehnologia robotică, cum ar fi integrarea feedback-ului haptic, sisteme de navigație intraoperatorie bazate pe imagistică preoperatorie augmentată și instrumente mai avansate, ar putea îmbunătăți și mai mult performanța și siguranța R-CME.</li>
+                    <li><strong>Analize cost-eficiență detaliate:</strong> Sunt necesare studii prospective care să evalueze în mod cuprinzător raportul cost-eficiență al R-CME, luând în considerare nu doar costurile inițiale ale echipamentului, ci și economiile potențiale generate de reducerea complicațiilor, a duratei de spitalizare și a necesității de reintervenții.</li>
+                </ul>
+                <p class="text-stone-600 mt-3">În concluzie, excizia mezocolică completă robotică reprezintă o opțiune terapeutică promițătoare și în continuă dezvoltare pentru pacienții cu cancer de colon drept și stâng. Deși necesită resurse considerabile și o curbă de învățare dedicată, avantajele sale potențiale în ceea ce privește calitatea rezecției oncologice și rezultatele perioperatorii justifică eforturile continue de cercetare și implementare în practica clinică, cu o atenție deosebită acordată selecției pacienților și managementului variațiilor anatomice.</p>
+            </div>
+
+            <!-- SLIDE BIBLIOGRAFIE -->
+            <div class="slide bibliography-slide" id="bibliographySlideGlobal">
+                 <div class="slide-main-content">
+                    <h2 class="text-2xl sm:text-3xl font-semibold text-teal-700 mb-4">Bibliografie Generală</h2>
+                    <ol id="bibliographyList" class="list-decimal text-stone-600 space-y-1">
+                        <!-- Bibliography items will be populated by JavaScript -->
+                    </ol>
+                </div>
+            </div>
+
+            <!-- SLIDE MULTUMIRI -->
+            <div class="slide">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-teal-700 mb-6 text-center">Vă mulțumim!</h2>
+                <p class="text-md sm:text-lg text-stone-600 text-center">Această prezentare a sumarizat aspectele cheie ale Exciziei Mezocolice Complete (CME) Robotice în Cancerul de Colon Drept și Stâng.</p>
+                <p class="text-sm sm:text-md text-stone-500 text-center mt-8">Apăsați "Anterior" pentru a revizui sau închideți fereastra.</p>
+            </div>
+
+        </div>
+
+        <div id="navigationControls" class="bg-stone-50 p-3 sm:p-4 flex flex-wrap items-center justify-between border-t border-stone-200">
+            <button id="prevButton" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-3 sm:px-4 rounded-lg shadow transition duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed order-1">
+                Anterior
+            </button>
+            
+            <div id="slideNavCenter" class="flex items-center justify-center order-3 sm:order-2 w-full sm:w-auto mt-2 sm:mt-0 flex-grow sm:flex-grow-0">
+                <span class="navigation-text">Slide</span>
+                <input type="number" id="slideNumberInput" min="1" class="bg-white border border-stone-300 text-stone-700 rounded-lg focus:ring-teal-500 focus:border-teal-500 block p-1.5 text-center">
+                <span id="totalSlidesText" class="navigation-text">/ X</span>
+                <button id="jumpToSlideBtn" class="ml-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold py-1.5 px-2 sm:px-3 rounded-lg shadow text-sm">Salt</button>
+                <button id="returnToCitationSlideBtn" class="ml-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold py-1.5 px-2 sm:px-3 rounded-lg shadow text-sm hidden">
+                    Înapoi la Citare
+                </button>
+            </div>
+            
+            <button id="nextButton" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-3 sm:px-4 rounded-lg shadow transition duration-150 ease-in-out order-2 sm:order-3">
+                Următorul
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const bibliographySourceText = `
+1. www.clinicsinsurgery.com, accessed on May 27, 2025, https://www.clinicsinsurgery.com/open-access/robotic-complete-mesocolic-excision-a-systematic-review-of-the-literature-6956.pdf
+2. Complete mesocolic excision for right colon cancer - Zenger ..., accessed on May 27, 2025, https://ales.amegroups.org/article/view/5314/html
+3. Complete mesocolic excision: Techniques and outcomes - PMC - PubMed Central, accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC4678385/
+4. Complete mesocolic excision: Lessons from anatomy translating to ..., accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC4789608/
+5. a Visualisation of the 4 key steps in robotic right colectomy with... - ResearchGate, accessed on May 27, 2025, https://www.researchgate.net/figure/a-Visualisation-of-the-4-key-steps-in-robotic-right-colectomy-with-suprapubic-approach_fig2_334153997
+6. The complexity of the count: considerations regarding lymph node evaluation in colorectal carcinoma - PMC - PubMed Central, accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC3492483/
+7. Colon cancer: is the robot a better option? - Quezada-Diaz, accessed on May 27, 2025, https://ales.amegroups.org/article/view/9375/html
+8. Robotic Complete Mesocolic Excision (CME) is a safe and feasible ..., accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC8599208/
+9. Port set-up for robotic complete mesocolic excision | Download ..., accessed on May 27, 2025, https://www.researchgate.net/figure/Port-set-up-for-robotic-complete-mesocolic-excision_fig1_325205217
+10. Comparative study of robotic-assisted vs. laparoscopic surgery for colorectal cancer: a single-center experience - Frontiers, accessed on May 27, 2025, https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2024.1507323/full
+11. Robotic colectomy with CME versus laparoscopic colon resection with or without CME for colon cancer: a systematic review and meta-analysis - PMC - PubMed Central, accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC9889180/
+12. Robotic colectomy with CME versus laparoscopic colon resection with or without CME for colon cancer: a systematic review and meta-analysis | The Annals of The Royal College of Surgeons of England, accessed on May 27, 2025, https://publishing.rcseng.ac.uk/doi/10.1308/rcsann.2022.0051
+13. Right hemicolectomy: laparoscopic versus robotic approach - Annali Italiani di Chirurgia, accessed on May 27, 2025, https://annaliitalianidichirurgia.it/index.php/aic/article/download/2463/2240/5788
+14. Clinical Robotic Surgery Association Fifth Worldwide Congress, Washington DC, 3–5 October 2013 - ecancer, accessed on May 27, 2025, https://ecancer.org/es/journal/article/385-clinical-robotic-surgery-association-fifth-worldwide-congress-washington-dc-3-5-october-2013-robotic-colorectal-surgery
+15. Comparison of open, laparoscopic, and robotic left colectomy for radical treatment of colon cancer: a retrospective analysis in a consecutive series of 211 patients - PubMed Central, accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC9578184/
+16. Development of robotic surgical devices and its application in ..., accessed on May 27, 2025, https://www.oaepublish.com/articles/2574-1225.2023.56
+17. Radical Right Colectomy with Complete Mesocolic Excision (CME ..., accessed on May 27, 2025, https://accesssurgery.mhmedical.com/content.aspx?bookid=3396§ionid=283483180
+18. What does robotic right colectomy add to its laparoscopic counterpart? - Tatar, accessed on May 27, 2025, https://ales.amegroups.org/article/view/5489/html
+19. The role of robotics in colorectal surgery - RCSEng - Royal College of Surgeons, accessed on May 27, 2025, https://publishing.rcseng.ac.uk/doi/10.1308/rcsann.supp2.42
+20. Robotic Colorectal Surgery for Surgeons | Intuitive, accessed on May 27, 2025, https://www.intuitive.com/en-us/healthcare-professionals/surgeons/colorectal
+21. Gastrointestinal robotic surgery: challenges and developments - Dove Medical Press, accessed on May 27, 2025, https://www.dovepress.com/gastrointestinal-robotic-surgery-challenges-and-developments-peer-reviewed-fulltext-article-RSRR
+22. Comparison of Short-term Surgical Outcomes between a Robotic Colectomy and a Laparoscopic Colectomy during Early Experience - Annals of Coloproctology, accessed on May 27, 2025, https://coloproctol.org/journal/view.php?doi=10.3393/jksc.2012.28.1.19
+23. Robotic Assisted Surgery: A solution to European healthcare challenges - MedTech Europe, accessed on May 27, 2025, https://www.medtecheurope.org/wp-content/uploads/2025/05/may-8th_ras-position-paper.pdf
+24. CME: Robotic-Assisted Surgery - FibonacciMD, accessed on May 27, 2025, https://www.fibonaccimd.com/post/robotic-assisted-surgery-cme
+25. Anatomy, Abdomen and Pelvis: Large Intestine - StatPearls - NCBI ..., accessed on May 27, 2025, https://www.ncbi.nlm.nih.gov/books/NBK470577/
+26. Right Hemicolectomy, Robot-Assisted, with Complete Mesocolic ..., accessed on May 27, 2025, https://www.webop.com/robotics/colorectal-surgery/right-hemicolectomy-robot-assisted-with-complete-mesocolic-excision-cme-and-ufa-uncinatus-first-approach-critical-view-concept-cv
+27. Robotic Complete Mesocolic Excision with Central Vascular Ligation ..., accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC7714811/
+28. The Colon - Ascending - Transverse - Descending - Sigmoid - TeachMeAnatomy, accessed on May 27, 2025, https://teachmeanatomy.info/abdomen/gi-tract/colon/
+29. Anatomy, Abdomen and Pelvis: Superior Mesenteric Artery ... - NCBI, accessed on May 27, 2025, https://www.ncbi.nlm.nih.gov/books/NBK519560/
+30. Superior mesenteric artery - Wikipedia, accessed on May 27, 2025, https://en.wikipedia.org/wiki/Superior_mesenteric_artery
+31. Anatomy, Abdomen and Pelvis: Inferior Mesenteric Artery ... - NCBI, accessed on May 27, 2025, https://www.ncbi.nlm.nih.gov/books/NBK482156/
+32. Inferior mesenteric artery: Anatomy and function - Kenhub, accessed on May 27, 2025, https://www.kenhub.com/en/library/anatomy/inferior-mesenteric-artery
+33. Marginal artery of Drummond | Radiology Reference Article | Radiopaedia.org, accessed on May 27, 2025, https://radiopaedia.org/articles/marginal-artery-of-drummond
+34. Marginal artery of the colon - Wikipedia, accessed on May 27, 2025, https://en.wikipedia.org/wiki/Marginal_artery_of_the_colon
+35. Should Surgeons Evaluate the Anatomy of Drummond Marginal ..., accessed on May 27, 2025, https://pubmed.ncbi.nlm.nih.gov/32819026/
+36. Marginal artery of Drummond: Anatomy, branches, supply - Kenhub, accessed on May 27, 2025, https://www.kenhub.com/en/library/anatomy/marginal-artery-of-drummond
+37. The anatomy of the ascending colon | Kenhub, accessed on May 27, 2025, https://www.kenhub.com/en/library/anatomy/ascending-colon
+38. Anatomy - The Gastrointestinal Circulation - NCBI Bookshelf, accessed on May 27, 2025, https://www.ncbi.nlm.nih.gov/books/NBK53099/
+39. The Relation between Inferior Mesenteric Vein Ligation and ..., accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC3809879/
+40. Imaging of the Inferior Mesenteric Vasculature | RadioGraphics - RSNA Journals, accessed on May 27, 2025, https://pubs.rsna.org/doi/abs/10.1148/rg.240047
+41. Anatomic variations of the gastrocolic trunk of Henle and ..., accessed on May 27, 2025, https://www.annalsmedres.org/index.php/aomr/article/view/4828
+42. Anatomic variations of the gastrocolic trunk of Henle and implications for colon surgery, accessed on May 27, 2025, https://www.researchgate.net/publication/391166340_Anatomic_variations_of_the_gastrocolic_trunk_of_Henle_and_implications_for_colon_surgery
+43. Variations of right colic vascular vessels. The number of cases and... - ResearchGate, accessed on May 27, 2025, https://www.researchgate.net/figure/ariations-of-right-colic-vascular-vessels-The-number-of-cases-and-percentages-for-each_fig1_330348154
+44. oamjms.eu, accessed on May 27, 2025, https://oamjms.eu/index.php/mjms/article/download/9818/7883/98095
+45. Laparoscopic top-down right hemicolectomy: a new surgical technique to complete mesocolic excision - Banchini - Journal of Visualized Surgery, accessed on May 27, 2025, https://jovs.amegroups.org/article/view/136381/html
+46. "Top down no-touch" technique in robotic complete mesocolic ..., accessed on May 27, 2025, https://pubmed.ncbi.nlm.nih.gov/30083781/
+47. ajronline.org, accessed on May 27, 2025, https://ajronline.org/doi/pdf/10.2214/ajr.161.1.8517322?download=true
+48. ANATOMICAL VArIANTs Of INferIOr MeseNTerIC VesseLs ANd surgICAL IMpLICATIONs, accessed on May 27, 2025, https://revanatomie.ro/pdf/2018_2_15.pdf
+49. Colon interposition for esophageal replacement - MMCTS, accessed on May 27, 2025, https://mmcts.org/tutorial/681
+50. (PDF) The superior mesenteric artery and the variations of the colic ..., accessed on May 27, 2025, https://www.researchgate.net/publication/285770961_The_superior_mesenteric_artery_and_the_variations_of_the_colic_patterns_A_new_anatomical_and_radiological_classification_of_the_colic_arteries
+51. Surgical anatomy and clinical variation of the left colonic artery in ..., accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC10803649/
+52. (PDF) The significance of anatomical variation of the inferior ..., accessed on May 27, 2025, https://www.researchgate.net/publication/363431196_The_significance_of_anatomical_variation_of_the_inferior_mesenteric_artery_and_its_branches_for_laparoscopic_radical_resection_of_colorectal_cancer_a_review
+53. Clinical application of three-dimensional printing technology in laparoscopic right hemicolectomy for colon cancer: a pilot study and video demonstration, accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC11869718/
+54. Preoperative CT-Scan Angiography Reconstruction Before Right Colectomy with Complete Mesocolon Excision: A Systematic Review and Meta-analysis - PubMed, accessed on May 27, 2025, https://pubmed.ncbi.nlm.nih.gov/39739073/
+55. (PDF) Preoperative CT-Scan Angiography Reconstruction Before Right Colectomy with Complete Mesocolon Excision: A Systematic Review and Meta-analysis - ResearchGate, accessed on May 27, 2025, https://www.researchgate.net/publication/387536442_Preoperative_CT-Scan_Angiography_Reconstruction_Before_Right_Colectomy_with_Complete_Mesocolon_Excision_A_Systematic_Review_and_Meta-analysis
+56. Complete mesocolic excision for right hemicolectomy: an updated systematic review and meta-analysis | springermedizin.de, accessed on May 27, 2025, https://www.springermedizin.de/complete-mesocolic-excision-for-right-hemicolectomy-an-updated-s/25966920
+57. Arc of Riolan (AoR) seen during skeletonization of inferior ..., accessed on May 27, 2025, https://www.researchgate.net/figure/Arc-of-Riolan-AoR-seen-during-skeletonization-of-inferior-mesenteric-vein-IMV-before_fig2_322755923
+58. The Meandering Mesenteric Artery: A Historic Review and Surgical Implications, accessed on May 27, 2025, https://www.researchgate.net/publication/7808152_The_Meandering_Mesenteric_Artery_A_Historic_Review_and_Surgical_Implications
+59. ANATOMICAL VARIATIONS OF THE SUPERIOR ... - SciELO Brasil, accessed on May 27, 2025, https://www.scielo.br/j/abcd/a/5xfV3qvK8XVstzm5CRYkvZC/
+60. Short-Term Results of Robotic versus Laparoscopic Right Hemicolectomy with Complete Mesocolic Excision - JournalAgent, accessed on May 27, 2025, https://jag.journalagent.com/z4/download_fulltext.asp?pdir=cm&plng=eng&un=IKSST-24392
+61. The value of ICG-guided left colon vascular variation and anatomical ..., accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC10656685/
+62. Unique Constellation of Vascular Anomalies in a Female Cadaver: IVC, Renal Vein, and Left Colic Artery Variation - MDPI, accessed on May 27, 2025, https://www.mdpi.com/2673-4095/5/1/3
+63. Bifurcated Arc of Buhler Co-existent with an Arc of Riolan-A Rare Case Report - JCDR, accessed on May 27, 2025, https://www.jcdr.net/articles/PDF/17422/59615_CE(Vi)_F(IS)_PF1(KA_JD_SHU)_redo_PN(SHU).pdf
+64. 3D mesenteric angiogram-based assessment of Arc of Riolan crossing the inferior mesenteric vein: important considerations in high ligation during splenic flexure takedown in anterior resection - PubMed Central, accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC9378323/
+65. Mesentery: Anatomy, functions and clinical points | Kenhub, accessed on May 27, 2025, https://www.kenhub.com/en/library/anatomy/mesentery
+66. Ureteral injury during left colectomy for cancer: Laparoscopic management. A case report, accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC7876921/
+67. auau.auanet.org, accessed on May 27, 2025, https://auau.auanet.org/sites/default/files/media/2024-01/US2020%20Lesson%2011.pdf
+68. Preventing rare contralateral ureteral injury during robotic-assisted nephroureterectomy: lessons from a surgical complication - PMC, accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC11884137/
+69. Urological Injuries during Colorectal Surgery - PMC, accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC6494609/
+70. CC vs. CC-Plus: A Comparison between Two Cranial-to-Caudal ..., accessed on May 27, 2025, https://www.mdpi.com/2075-4426/14/8/781
+71. Laparoscopic top-down right hemicolectomy: a new surgical technique to complete mesocolic excision - Journal of Visualized Surgery, accessed on May 27, 2025, https://jovs.amegroups.org/article/download/136381/102818
+72. Robotic Right Hemicolectomy with CME for Cancer. Uncinate first Open Book & Bottom-Up Approach - MEDtube.net, accessed on May 27, 2025, https://medtube.net/general-surgery/medical-videos/41409-robotic-right-hemicolectomy-with-cme-for-cancer-uncinate-first-open-book-bottom-up-approach
+73. Robotic versus laparoscopic right hemicolectomy: a systematic ..., accessed on May 27, 2025, https://pubmed.ncbi.nlm.nih.gov/38466445/
+74. Robotic right colectomy versus laparoscopic right colectomy in ..., accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC11515452/
+75. Comparison of robotic right colectomy and laparoscopic right ..., accessed on May 27, 2025, https://www.researchgate.net/publication/370777465_Comparison_of_robotic_right_colectomy_and_laparoscopic_right_colectomy_a_systematic_review_and_meta-analysis
+76. Robotic colectomy with CME versus laparoscopic colon resection with or without CME for colon cancer: a systematic review and meta-analysis | Request PDF - ResearchGate, accessed on May 27, 2025, https://www.researchgate.net/publication/362657198_Robotic_colectomy_with_CME_versus_laparoscopic_colon_resection_with_or_without_CME_for_colon_cancer_a_systematic_review_and_meta-analysis
+77. Complete Mesocolic Excision (CME) versus Conventional RT Hemicolectomy (CRH) in Patients with Right Sided Colon Cancer: A Systematic Review and Meta-Analysis | QJM: An International Journal of Medicine | Oxford Academic, accessed on May 27, 2025, https://academic.oup.com/qjmed/article/116/Supplement_1/hcad069.308/7247671
+78. Right hemicolectomy with complete mesocolic excision is safe, leads to an increased lymph node yield and to increased survival: results of a systematic review and meta-analysis - PubMed Central, accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC8419145/
+79. (PDF) Comparison of Robotic, Laparoscopic, and Open Resections ..., accessed on May 27, 2025, https://www.researchgate.net/publication/367218936_Comparison_of_Robotic_Laparoscopic_and_Open_Resections_of_Nonmetastatic_Colon_Cancer
+80. Updates on Robotic CME for Right Colon Cancer: A Qualitative Systematic Review, accessed on May 27, 2025, https://pubmed.ncbi.nlm.nih.gov/34204803/
+81. Complete Mesocolic Excision Appears Feasible in Right Colon Cancer - CancerNetwork, accessed on May 27, 2025, https://www.cancernetwork.com/view/complete-mesocolic-excision-appears-feasible-in-right-colon-cancer
+82. A Randomized Phase III Trial of Complete Mesocolic Excision Compared with Conventional Surgery for Right Colon Cancer: Interim Analysis of a Nationwide Multicenter Study of the Italian Society of Surgical Oncology Colorectal Cancer Network (CoME-in trial) - PubMed Central, accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC10838239/
+83. A global systematic review and meta-analysis on laparoscopic vs ..., accessed on May 27, 2025, https://pubmed.ncbi.nlm.nih.gov/33644837/
+84. Robot-assisted versus laparoscopic short- and long-term outcomes ..., accessed on May 27, 2025, https://www.researchgate.net/publication/362904665_Robot-assisted_versus_laparoscopic_short-_and_long-term_outcomes_in_complete_mesocolic_excision_for_right-sided_colonic_cancer_a_systematic_review_and_meta-analysis
+85. Robotic Right Colectomy with Modified Complete Mesocolic ..., accessed on May 27, 2025, https://www.researchgate.net/publication/308878207_Robotic_Right_Colectomy_with_Modified_Complete_Mesocolic_Excision_Long-Term_Oncologic_Outcomes
+86. Short- and Long-Term Outcome of Laparoscopic- versus Robotic ..., accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC9103048/
+87. Robotic surgery is associated with improved outcomes for most ..., accessed on May 27, 2025, https://www.utsouthwestern.edu/newsroom/articles/year-2024/jan-robotic-surgery-colon-cancer-patients.html
+88. Systematic Review and Meta-Analysis of Laparoscopic versus Robotic-Assisted Surgery for Colon Cancer: Efficacy, Safety, and Outcomes—A Focus on Studies from 2020–2024 - MDPI, accessed on May 27, 2025, https://www.mdpi.com/2072-6694/16/8/1552
+89. Right colectomy from open to robotic — a single-center experience ..., accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC9640414/
+90. (PDF) Oncologic Outcomes for Robotic Versus Laparoscopic ..., accessed on May 27, 2025, https://www.researchgate.net/publication/381456625_Oncologic_Outcomes_for_Robotic_Versus_Laparoscopic_Colectomy_for_Colon_Cancer_An_ACS-NSQIP_Analysis
+91. (PDF) Surgical and oncological outcomes of laparoscopic right hemicolectomy (D3 + CME) for colon cancer: A prospective single-center cohort study - ResearchGate, accessed on May 27, 2025, https://www.researchgate.net/publication/370493935_Surgical_and_oncological_outcomes_of_laparoscopic_right_hemicolectomy_D3_CME_for_colon_cancer_A_prospective_single-center_cohort_study
+92. Updates on Robotic CME for Right Colon Cancer: A Qualitative ..., accessed on May 27, 2025, https://www.mdpi.com/2075-4426/11/6/550
+93. (PDF) Robotic right‐sided colon cancer surgery: Dissecting the ..., accessed on May 27, 2025, https://www.researchgate.net/publication/383874506_Robotic_right-sided_colon_cancer_surgery_Dissecting_the_outermost_layer_of_the_autonomic_nerve_along_the_superior_mesenteric_artery
+94. Left-Sided Colon Resections: Unique Considerations and Optimal ..., accessed on May 27, 2025, https://abdominalkey.com/left-sided-colon-resections-unique-considerations-and-optimal-setup/
+95. Robotic Left Colectomy with CME | Request PDF - ResearchGate, accessed on May 27, 2025, https://www.researchgate.net/publication/350363395_Robotic_Left_Colectomy_with_CME
+96. Robotic versus laparoscopic left colectomy with complete mesocolic excision for left-sided colon cancer: a multicentre study with propensity score matching analysis - PubMed, accessed on May 27, 2025, https://pubmed.ncbi.nlm.nih.gov/37014449/
+97. Comparison of open, laparoscopic, and robotic left colectomy for ..., accessed on May 27, 2025, https://pubmed.ncbi.nlm.nih.gov/36253768/
+98. Comparison of short-term outcomes between laparoscopic-assisted ..., accessed on May 27, 2025, https://cco.amegroups.org/article/view/13544/html
+99. Totally Robotic Sigmoidectomy with Trans-anal Specimen Extraction ..., accessed on May 27, 2025, https://csurgeries.com/video/totally-robotic-sigmoidectomy-with-trans-anal-specimen-extraction-and-intra-corporeal-single-stapler-end-to-end-anastomosis/
+100. Robotic versus laparoscopic left colectomy with complete mesocolic excision for left-sided colon cancer: a multicentre study with propensity score matching analysis | Request PDF - ResearchGate, accessed on May 27, 2025, https://www.researchgate.net/publication/369792809_Robotic_versus_laparoscopic_left_colectomy_with_complete_mesocolic_excision_for_left-sided_colon_cancer_a_multicentre_study_with_propensity_score_matching_analysis
+101. Outcome of Colorectal Robotic Surgery in Newly Established Robotic Surgery Center: A Case Series - PMC, accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC11324209/
+102. Robotic versus laparoscopic left colectomy with complete mesocolic ..., accessed on May 27, 2025, https://ouci.dntb.gov.ua/en/works/4b150ZW7/
+103. Right Hemicolectomy with Complete Mesocolic Excision Using the Versius Surgical System - AIR Unimi, accessed on May 27, 2025, https://air.unimi.it/retrieve/8ed0e5f7-c359-4bd7-a7cc-e0ff95f68421/2023-right%20emicolectomy%20with%20complete.pdf
+104. Robotic colectomy with CME versus laparoscopic colon resection with or without CME for colon cancer: a systematic review and meta-analysis - RCSEng, accessed on May 27, 2025, https://publishing.rcseng.ac.uk/doi/abs/10.1308/rcsann.2022.0051
+105. Indocyanine Green Fluorescence-Guided Surgery for Gastrointestinal Tumors: A Systematic Review - PMC, accessed on May 27, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC10431291/
+106. A critical view of safety in left colectomy surgery: A case of renal artery injury - ResearchGate, accessed on May 27, 2025, https://www.researchgate.net/publication/351933828_A_critical_view_of_safety_in_left_colectomy_surgery_A_case_of_renal_artery_injury
+107. Robotic-assisted colorectal surgery in colorectal cancer management: a narrative review of clinical efficacy and multidisciplinary integration - Frontiers, accessed on May 27, 2025, https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2025.1502014/epub
+108. Indocyanine green fluorescence in gastrointestinal surgery: Appraisal of current evidence, accessed on May 27, 2025, https://www.wjgnet.com/1948-9366/full/v15/i12/2693.html
+`;
+
+        const bibliographyStore = [];
+        let lastClickedFromSlideIndex = -1; 
+        let bibliographySlideElement;
+        let bibliographySlideActualIndex = -1; 
+
+        let slides;
+        let prevButton, nextButton, jumpToSlideBtn;
+        let slideNumberInput, totalSlidesText, slideNavCenter;
+        let returnToCitationSlideBtn;
+        let currentSlide = 0;
+        let totalSlides = 0;
+
+        function parseBibliography(text) {
+            const lines = text.trim().split('\n');
+            lines.forEach(line => {
+                const match = line.match(/^(\d+)\.\s*(.*)/);
+                if (match) {
+                    const id = parseInt(match[1], 10);
+                    const fullText = match[2].trim();
+                    let tooltipText = '';
+                    const domainMatch = fullText.match(/^(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9.-]+)\//i);
+                    if (domainMatch) {
+                        tooltipText = domainMatch[1];
+                    } else {
+                        const authorMatch = fullText.match(/^([A-Za-z\s.,-]+?(-|–)\s*[A-Za-z\s]+(et al\.)?)/i);
+                        const researchGateAuthorMatch = fullText.match(/-\s*([A-Za-z\s]+)\s*(,|\.{3}|$)/);
+                        if (authorMatch && authorMatch[1].length < 70) {
+                            tooltipText = authorMatch[1].replace(/\.{3}.*$/, '...').trim();
+                        } else if (researchGateAuthorMatch && researchGateAuthorMatch[1].length < 50) {
+                            tooltipText = researchGateAuthorMatch[1].trim();
+                            if(tooltipText.toLowerCase().includes("researchgate")) tooltipText = "ResearchGate";
+                            else if(tooltipText.toLowerCase().includes("pubmed")) tooltipText = "PubMed";
+                            else if(tooltipText.toLowerCase().includes("ncbi")) tooltipText = "NCBI";
+                        } else {
+                            tooltipText = fullText.substring(0, 40) + (fullText.length > 40 ? "..." : "");
+                        }
+                    }
+                    tooltipText = tooltipText.replace(/,\s*accessed on.*?$/, "").trim();
+                    bibliographyStore.push({ id, fullText, shortText: tooltipText, tooltipText });
+                }
+            });
+            bibliographyStore.sort((a,b) => a.id - b.id);
+        }
+
+        function parseCitationString(citationStr) {
+            const numbers = new Set();
+            if (!citationStr) return [];
+            const parts = citationStr.split(',');
+            parts.forEach(part => {
+                part = part.trim();
+                if (part.includes('-') || part.includes('–')) {
+                    const range = part.split(/-|–/).map(n => parseInt(n.trim(), 10));
+                    if (range.length === 2 && !isNaN(range[0]) && !isNaN(range[1])) {
+                        for (let i = range[0]; i <= range[1]; i++) numbers.add(i);
+                    } else if (!isNaN(range[0])) numbers.add(range[0]);
+                } else {
+                    const num = parseInt(part, 10);
+                    if (!isNaN(num)) numbers.add(num);
+                }
+            });
+            return Array.from(numbers).sort((a, b) => a - b);
+        }
+
+        function makeUrlsClickable(text) {
+            const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])|(\bwww\.[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+            let lastIndex = 0;
+            const fragment = document.createDocumentFragment();
+            let match;
+
+            while ((match = urlRegex.exec(text)) !== null) {
+                if (match.index > lastIndex) {
+                    fragment.appendChild(document.createTextNode(text.substring(lastIndex, match.index)));
+                }
+                let url = match[0];
+                if (match[3] && !match[2]) { 
+                    url = 'http://' + url;
+                }
+                const anchor = document.createElement('a');
+                anchor.href = url;
+                anchor.textContent = match[0]; 
+                anchor.className = 'external-link';
+                anchor.target = '_blank'; 
+                anchor.rel = 'noopener noreferrer';
+                fragment.appendChild(anchor);
+                lastIndex = urlRegex.lastIndex;
+            }
+            if (lastIndex < text.length) {
+                fragment.appendChild(document.createTextNode(text.substring(lastIndex)));
+            }
+            return fragment;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            parseBibliography(bibliographySourceText);
+            bibliographySlideElement = document.getElementById('bibliographySlideGlobal');
+
+            const allSlidesInArea = Array.from(document.querySelectorAll('#slideArea > .slide'));
+            allSlidesInArea.forEach((slideEl, slideIndex) => {
+                const isFirstSlide = slideIndex === 0;
+                const isLastSlide = slideIndex === allSlidesInArea.length - 1;
+                const isBibliographySlide = slideEl.classList.contains('bibliography-slide');
+
+                if (!slideEl.querySelector('.slide-main-content')) {
+                    const originalContent = Array.from(slideEl.childNodes);
+                    const slideMainContent = document.createElement('div');
+                    if ((isFirstSlide || isLastSlide) && !isBibliographySlide) {
+                        slideMainContent.className = 'slide-main-content flex flex-col justify-center items-center h-full';
+                    } else {
+                        slideMainContent.className = 'slide-main-content';
+                    }
+                    originalContent.forEach(node => slideMainContent.appendChild(node.cloneNode(true)));
+                    slideEl.innerHTML = '';
+                    slideEl.appendChild(slideMainContent);
+                }
+            });
+
+            const tocSlide = document.createElement('div');
+            tocSlide.className = 'slide';
+            tocSlide.id = 'tableOfContentsSlide';
+            const tocMainContent = document.createElement('div');
+            tocMainContent.className = 'slide-main-content';
+            tocMainContent.innerHTML = `
+                <h2 class="text-2xl sm:text-3xl font-semibold text-teal-700 mb-6 text-center">Cuprins</h2>
+                <ul id="tocList" class="space-y-1 sm:space-y-2 text-base sm:text-lg text-stone-700 max-w-2xl mx-auto pl-0 list-none">
+                </ul>`; // Am scos pl-4 și list-disc pentru a permite controlul complet al indentării la <li>
+            tocSlide.appendChild(tocMainContent);
+            const slideArea = document.getElementById('slideArea');
+            if (slideArea.children.length > 1) {
+                slideArea.insertBefore(tocSlide, slideArea.children[1]);
+            } else {
+                slideArea.appendChild(tocSlide);
+            }
+
+            slides = document.querySelectorAll('#slideArea > .slide');
+            totalSlides = slides.length;
+            bibliographySlideActualIndex = Array.from(slides).indexOf(bibliographySlideElement);
+
+            const tocList = document.getElementById('tocList');
+            const sectionPattern = /^(I{1,3}|IV|V|VI|VII|VIII|IX|X)\.\s+(.*)/;
+            const addedTocTitles = new Set(); 
+
+            slides.forEach((slide, index) => {
+                const h2 = slide.querySelector('.slide-main-content > h2:first-child');
+                if (h2) {
+                    const h2Text = h2.textContent.trim();
+                    if (slide.id === 'tableOfContentsSlide') { 
+                         return;
+                    }
+                    const match = h2Text.match(sectionPattern);
+                    
+                    if (match || slide.id === 'bibliographySlideGlobal') {
+                        const sectionTitle = slide.id === 'bibliographySlideGlobal' ? "Bibliografie Generală" : match[0]; 
+
+                        if (!addedTocTitles.has(sectionTitle)) {
+                            const listItem = document.createElement('li');
+                            // Adaugam indentare doar pentru titlurile cu numeral roman
+                            if (match && slide.id !== 'bibliographySlideGlobal') {
+                                listItem.className = "pl-4"; // Indentare pentru sectiuni
+                            } else {
+                                listItem.className = ""; // Fara indentare pentru "Bibliografie Generală"
+                            }
+
+                            const link = document.createElement('a');
+                            link.href = '#';
+                            link.className = 'toc-link text-sky-700 hover:text-teal-600 hover:underline cursor-pointer';
+                            link.textContent = sectionTitle;
+                            link.dataset.targetSlideIndex = index;
+                            link.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                showSlide(parseInt(e.target.dataset.targetSlideIndex, 10));
+                            });
+                            listItem.appendChild(link);
+                            tocList.appendChild(listItem);
+                            addedTocTitles.add(sectionTitle); 
+                        }
+                    }
+                }
+            });
+
+            slides.forEach((slideEl, slideIdx) => {
+                const mainContentToProcess = slideEl.querySelector('.slide-main-content');
+                if (mainContentToProcess) processNodeForSup(mainContentToProcess, slideIdx);
+            });
+            
+            function processNodeForSup(parentElement, currentSlideIdxGlobal) {
+                Array.from(parentElement.childNodes).forEach(currentNode => {
+                    if (currentNode.nodeType === Node.TEXT_NODE) {
+                        const text = currentNode.nodeValue;
+                        const citationRegex = /\[([\d,-–]+)\]/g;
+                        let lastIndex = 0;
+                        const fragment = document.createDocumentFragment();
+                        let match;
+                        while ((match = citationRegex.exec(text)) !== null) {
+                            if (match.index > lastIndex) fragment.appendChild(document.createTextNode(text.substring(lastIndex, match.index)));
+                            const refNumbersArray = parseCitationString(match[1]);
+                            if (refNumbersArray.length > 0) {
+                                const anchor = document.createElement('a');
+                                anchor.className = 'citation-link';
+                                anchor.href = `#ref-item-${refNumbersArray[0]}`;
+                                const sup = document.createElement('sup');
+                                sup.textContent = refNumbersArray.join(',');
+                                sup.title = refNumbersArray.map(num => bibliographyStore.find(r => r.id === num)?.tooltipText || `Ref ${num}`).join('; ');
+                                anchor.appendChild(sup);
+                                fragment.appendChild(anchor);
+                                anchor.addEventListener('click', (e) => {
+                                    e.preventDefault();
+                                    lastClickedFromSlideIndex = currentSlideIdxGlobal;
+                                    if (bibliographySlideActualIndex !== -1) {
+                                        showSlide(bibliographySlideActualIndex);
+                                        const targetElement = document.getElementById(e.currentTarget.hash.substring(1));
+                                        if (targetElement) setTimeout(() => targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+                                    }
+                                });
+                            }
+                            lastIndex = citationRegex.lastIndex;
+                        }
+                        if (lastIndex < text.length) fragment.appendChild(document.createTextNode(text.substring(lastIndex)));
+                        if (fragment.childNodes.length > 0 && currentNode.parentNode) currentNode.parentNode.replaceChild(fragment, currentNode);
+                    } else if (currentNode.nodeType === Node.ELEMENT_NODE && currentNode.tagName !== 'SCRIPT' && currentNode.tagName !== 'STYLE' && currentNode.tagName !== 'A') {
+                        processNodeForSup(currentNode, currentSlideIdxGlobal);
+                    }
+                });
+            }
+
+            const bibListElement = document.getElementById('bibliographyList');
+            if (bibListElement) {
+                bibliographyStore.forEach(ref => {
+                    const li = document.createElement('li');
+                    li.id = `ref-item-${ref.id}`;
+                    const strong = document.createElement('strong');
+                    strong.className = 'text-teal-600';
+                    strong.textContent = `[${ref.id}]`;
+                    li.appendChild(strong);
+                    li.appendChild(document.createTextNode(` `)); 
+                    li.appendChild(makeUrlsClickable(ref.fullText));
+                    bibListElement.appendChild(li);
+                });
+            }
+            
+            initializePresentation(); 
+        });
+
+        function initializePresentation() {
+            prevButton = document.getElementById('prevButton');
+            nextButton = document.getElementById('nextButton');
+            slideNumberInput = document.getElementById('slideNumberInput');
+            totalSlidesText = document.getElementById('totalSlidesText');
+            jumpToSlideBtn = document.getElementById('jumpToSlideBtn');
+            returnToCitationSlideBtn = document.getElementById('returnToCitationSlideBtn');
+            slideNavCenter = document.getElementById('slideNavCenter');
+            slideNumberInput.max = totalSlides; 
+            showSlide(currentSlide); 
+
+            prevButton.addEventListener('click', () => { if (currentSlide > 0) showSlide(currentSlide - 1); });
+            nextButton.addEventListener('click', () => { if (currentSlide < totalSlides - 1) showSlide(currentSlide + 1); });
+            jumpToSlideBtn.addEventListener('click', navigateToSlideInput);
+            slideNumberInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') navigateToSlideInput(); });
+            if (returnToCitationSlideBtn) {
+                returnToCitationSlideBtn.addEventListener('click', () => { if (lastClickedFromSlideIndex !== -1) showSlide(lastClickedFromSlideIndex); });
+            }
+        }
+
+        function updateNavigationControls() {
+            slideNumberInput.value = currentSlide + 1;
+            totalSlidesText.textContent = `/ ${totalSlides}`;
+            prevButton.disabled = currentSlide === 0;
+            nextButton.disabled = currentSlide === totalSlides - 1;
+            const isBibliographySlideActive = bibliographySlideActualIndex !== -1 && currentSlide === bibliographySlideActualIndex;
+            const slideTextSpan = slideNavCenter?.querySelector('.navigation-text:first-of-type');
+
+            if (isBibliographySlideActive && lastClickedFromSlideIndex !== -1) {
+                slideNumberInput.classList.add('hidden');
+                totalSlidesText.classList.add('hidden');
+                jumpToSlideBtn.classList.add('hidden');
+                returnToCitationSlideBtn.classList.remove('hidden');
+                if (slideTextSpan) slideTextSpan.classList.add('hidden');
+            } else {
+                slideNumberInput.classList.remove('hidden');
+                totalSlidesText.classList.remove('hidden');
+                jumpToSlideBtn.classList.remove('hidden');
+                returnToCitationSlideBtn.classList.add('hidden');
+                if (slideTextSpan) slideTextSpan.classList.remove('hidden');
+                if (!isBibliographySlideActive) lastClickedFromSlideIndex = -1;
+            }
+        }
+
+        function showSlide(index) {
+            if (index >= 0 && index < slides.length) {
+                slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+                currentSlide = index;
+                updateNavigationControls();
+                const activeSlideMainContent = slides[index]?.querySelector('.slide-main-content');
+                if (activeSlideMainContent) activeSlideMainContent.scrollTop = 0;
+            }
+        }
+
+        function navigateToSlideInput() {
+            const targetSlideNum = parseInt(slideNumberInput.value, 10);
+            if (!isNaN(targetSlideNum) && targetSlideNum >= 1 && targetSlideNum <= totalSlides) {
+                showSlide(targetSlideNum - 1);
+            } else {
+                alert(`Introduceți un număr de slide valid între 1 și ${totalSlides}.`);
+                slideNumberInput.value = currentSlide + 1; 
+            }
+        }
+    </script>
+</body>
+</html>
