@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -14,19 +13,33 @@
             font-family: 'Inter', sans-serif;
             overscroll-behavior-y: contain;
         }
+        /* Slide Animations (Replaces @keyframes fadeIn) */
         .slide {
             display: none;
-            animation: fadeIn 0.5s;
+            /* animation: fadeIn 0.5s; */ /* Old animation */
             height: 100%; 
             flex-direction: column;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
         }
         .slide.active {
             display: flex; 
+            opacity: 1;
+            transform: translateX(0);
         }
-        @keyframes fadeIn {
+        /* Respect prefers-reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+            .slide {
+                transition: none;
+                transform: none;
+            }
+        }
+        /* @keyframes fadeIn { Old animation
             from { opacity: 0; }
             to { opacity: 1; }
-        }
+        } */
+
         .table-container::-webkit-scrollbar {
             height: 8px;
         }
@@ -99,7 +112,6 @@
         .bibliography-slide .slide-main-content li strong {
             margin-right: 0.25rem;
         }
-        /* Stilizare pentru link-urile externe din bibliografie */
         .bibliography-slide .slide-main-content a.external-link {
             color: #2563eb; /* blue-600 */
             text-decoration: underline;
@@ -128,12 +140,12 @@
                 font-size: 1rem; /* text-base */
             }
         }
-        #navigationControls button {
+        #navigationControls button, #navigationControls #searchBtn {
             padding: 0.5rem 0.75rem;
             font-size: 0.875rem; /* text-sm */
         }
          @media (min-width: 640px) {
-            #navigationControls button {
+            #navigationControls button, #navigationControls #searchBtn {
                 padding: 0.5rem 1rem;
                 font-size: 1rem; /* text-base */
             }
@@ -142,8 +154,100 @@
             display: block; 
             padding: 0.25rem 0;
         }
-        #tocList li { /* Adaugă puțin spațiu sub fiecare element din TOC */
-            margin-bottom: 0.25rem; /* Ajustează după preferințe */
+        #tocList li {
+            margin-bottom: 0.25rem;
+        }
+
+        /* Table Enhancement for Mobile */
+        .table-container {
+            position: relative;
+        }
+        .table-container.scrollable::after { /* Only show arrow if scrollable */
+            content: '→';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(to right, transparent, white 50%);
+            padding-left: 1.5rem; /* space for the arrow */
+            padding-right: 0.5rem;
+            padding-top: 2rem; /* ensure it covers table height */
+            padding-bottom: 2rem;
+            pointer-events: none;
+            opacity: 1; /* Always show if scrollable, can be refined based on scroll position */
+            transition: opacity 0.3s;
+            font-size: 1.5rem;
+            color: #333;
+        }
+        @media (max-width: 768px) {
+            .table-container table {
+                font-size: 0.75rem; /* Smaller font on mobile for tables */
+            }
+            .table-container th,
+            .table-container td {
+                padding: 0.25rem; /* Smaller padding */
+            }
+        }
+
+        /* Medical Terms Glossary */
+        abbr[title] {
+            text-decoration: none; /* Tailwind might add this, ensure it's what we want */
+        }
+
+        /* Search Modal */
+        #searchModalResultsList li button {
+            text-align: left;
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+        }
+        #searchModalResultsList li button:hover {
+            background-color: #f0f0f0;
+        }
+         .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+
+    </style>
+    <style media="print">
+        body { background: white; color: black; }
+        #navigationControls, #quickNav, #progressBarContainer, #searchModal { display: none !important; }
+        #presentationContainer { box-shadow: none; border: none; height: auto; max-height: none; }
+        .slide { 
+            display: block !important; /* Show all slides */
+            page-break-after: always;
+            margin-bottom: 2rem;
+            height: auto !important;
+            opacity: 1 !important; /* Ensure visible */
+            transform: none !important; /* Reset transform */
+        }
+        .slide-content-area { height: auto !important; max-height: none !important; overflow: visible !important; }
+        .slide-main-content { 
+            max-height: none !important; 
+            overflow-y: visible !important; 
+            font-size: 10pt; /* Adjust font size for print */
+        }
+        .slide-main-content h1 { font-size: 18pt; }
+        .slide-main-content h2 { font-size: 16pt; }
+        .slide-main-content h3 { font-size: 14pt; }
+        .table-container { overflow-x: visible !important; }
+        .table-container::-webkit-scrollbar { display: none; }
+        .table-container.scrollable::after { display: none; } /* Hide scroll indicator */
+
+        table { width: 100% !important; page-break-inside: avoid; }
+        thead { display: table-header-group; } /* Repeat table headers on each page */
+        tbody { display: table-row-group; }
+        tr { page-break-inside: avoid; page-break-after: auto; }
+
+        a.citation-link sup, a.external-link { color: black !important; text-decoration: none !important; }
+        a.external-link::after { content: " (" attr(href) ")"; font-size: 0.8em; }
+        abbr[title]::after { content: " (" attr(title) ")"; font-size: 0.8em; }
+
+
+        @page { 
+            margin: 1.5cm;
+            size: A4 portrait;
         }
     </style>
 </head>
@@ -156,7 +260,7 @@
             <div class="slide active">
                 <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-teal-700 mb-6 text-center">Excizia Mezocolică Completă (CME) Robotică în Cancerul de Colon Drept și Stâng</h1>
                 <p class="text-md sm:text-lg text-stone-700 text-center mt-4">Abordări Chirurgicale, Anatomie Specifică, Argumente Pro și Contra, și Managementul Incidentelor Intraoperatorii</p>
-                <p class="text-xs sm:text-sm text-stone-500 text-center mt-12">Apăsați "Următorul" pentru a începe.</p>
+                <p class="text-xs sm:text-sm text-stone-500 text-center mt-12">Apăsați "Următorul" sau tasta Săgeată Dreapta / Spațiu pentru a începe.</p>
             </div>
 
             <!-- SLIDE-urile originale ale prezentarii încep aici -->
@@ -735,21 +839,27 @@
             <div class="slide">
                 <h2 class="text-2xl sm:text-3xl font-semibold text-teal-700 mb-6 text-center">Vă mulțumim!</h2>
                 <p class="text-md sm:text-lg text-stone-600 text-center">Această prezentare a sumarizat aspectele cheie ale Exciziei Mezocolice Complete (CME) Robotice în Cancerul de Colon Drept și Stâng.</p>
-                <p class="text-sm sm:text-md text-stone-500 text-center mt-8">Apăsați "Anterior" pentru a revizui sau închideți fereastra.</p>
+                <p class="text-sm sm:text-md text-stone-500 text-center mt-8">Apăsați "Anterior" pentru a revizui sau închideți fereastra. (Sau tasta Home/End pentru primul/ultimul slide)</p>
             </div>
 
         </div>
 
-        <div id="navigationControls" class="bg-stone-50 p-3 sm:p-4 flex flex-wrap items-center justify-between border-t border-stone-200">
+        <div id="navigationControls" class="bg-stone-50 p-3 sm:p-4 flex flex-wrap items-center justify-between border-t border-stone-200 relative">
             <button id="prevButton" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-3 sm:px-4 rounded-lg shadow transition duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed order-1">
                 Anterior
             </button>
             
             <div id="slideNavCenter" class="flex items-center justify-center order-3 sm:order-2 w-full sm:w-auto mt-2 sm:mt-0 flex-grow sm:flex-grow-0">
+                <span id="timerDisplay" class="navigation-text text-sky-700 font-medium mr-2 tabular-nums">00:00</span>
                 <span class="navigation-text">Slide</span>
                 <input type="number" id="slideNumberInput" min="1" class="bg-white border border-stone-300 text-stone-700 rounded-lg focus:ring-teal-500 focus:border-teal-500 block p-1.5 text-center">
                 <span id="totalSlidesText" class="navigation-text">/ X</span>
                 <button id="jumpToSlideBtn" class="ml-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold py-1.5 px-2 sm:px-3 rounded-lg shadow text-sm">Salt</button>
+                <button id="searchBtn" title="Caută în prezentare" class="ml-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-1.5 px-2 sm:px-3 rounded-lg shadow text-sm">
+                    <svg class="w-4 h-4 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </button>
                 <button id="returnToCitationSlideBtn" class="ml-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold py-1.5 px-2 sm:px-3 rounded-lg shadow text-sm hidden">
                     Înapoi la Citare
                 </button>
@@ -759,7 +869,45 @@
                 Următorul
             </button>
         </div>
+        <!-- Visual Progress Indicator -->
+        <div id="progressBarContainer" class="w-full bg-stone-200 h-1">
+            <div id="progressBar" class="bg-teal-600 h-1 transition-all duration-200" style="width: 0%"></div>
+        </div>
     </div>
+
+    <!-- Search Modal -->
+    <div id="searchModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg p-6 max-w-md w-full shadow-xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-semibold text-stone-700">Căutare în Prezentare</h3>
+                <button id="closeSearchModalBtn" class="text-stone-500 hover:text-stone-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <input type="text" id="searchInput" placeholder="Introduceți termenul de căutare..." class="w-full p-2 border border-stone-300 rounded-lg focus:ring-teal-500 focus:border-teal-500">
+            <div id="searchResultsContainer" class="mt-4 max-h-60 overflow-y-auto">
+                <ul id="searchModalResultsList" class="space-y-1">
+                    <!-- Search results will be populated here -->
+                </ul>
+                <p id="noResultsMsg" class="text-stone-500 hidden">Niciun rezultat găsit.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Navigation Menu -->
+    <div id="quickNav" class="fixed bottom-8 right-8 z-40">
+        <button id="quickNavBtn" title="Navigare Rapidă" class="bg-teal-600 hover:bg-teal-700 text-white rounded-full p-3 shadow-lg transition-transform hover:scale-110">
+            <svg class="w-6 h-6 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+        <div id="quickNavMenu" class="hidden absolute bottom-full right-0 mb-2 bg-white rounded-lg shadow-xl p-2 w-72 max-h-80 overflow-y-auto">
+            <ul id="quickNavList" class="space-y-1">
+                <!-- Dynamic section links -->
+            </ul>
+        </div>
+    </div>
+
 
     <script>
         const bibliographySourceText = `
@@ -880,11 +1028,49 @@
         let bibliographySlideActualIndex = -1; 
 
         let slides;
-        let prevButton, nextButton, jumpToSlideBtn;
+        let prevButton, nextButton, jumpToSlideBtn, searchBtn, closeSearchModalBtn;
         let slideNumberInput, totalSlidesText, slideNavCenter;
         let returnToCitationSlideBtn;
+        let quickNavBtn, quickNavMenu, quickNavList;
+        let searchModal, searchInput, searchResultsContainer, searchModalResultsList, noResultsMsg;
         let currentSlide = 0;
         let totalSlides = 0;
+
+        let presentationTimerInterval = null;
+        let elapsedSeconds = 0;
+        let timerDisplay;
+
+        const medicalTerms = {
+            'CME': 'Excizia Mezocolică Completă',
+            'R-CME': 'CME Robotică (Robotic Complete Mesocolic Excision)',
+            'L-CME': 'CME Laparoscopică (Laparoscopic Complete Mesocolic Excision)',
+            'AMS': 'Artera Mezenterică Superioară',
+            'VMS': 'Vena Mezenterică Superioară',
+            'CVL': 'Ligatură Vasculară Centrală',
+            'ICG': 'Verde de Indocianină',
+            'AMI': 'Artera Mezenterică Inferioară',
+            'VMI': 'Vena Mezenterică Inferioară',
+            'ACS': 'Artera Colică Stângă',
+            'ACD': 'Artera Colică Dreaptă',
+            'ACM': 'Artera Colică Medie',
+            'AIC': 'Artera Ileocolică',
+            'ICV': 'Vena Ileocolică',
+            'ICA': 'Artera Ileocolică',
+            'GCT': 'Trunchiul Gastrocolic al lui Henle (Gastrocolic Trunk)',
+            'VGED': 'Vena Gastroepiploică Dreaptă',
+            'VCD': 'Vena Colică Dreaptă',
+            'VPAS': 'Vena Pancreaticoduodenală Anterioară Superioară',
+            'TME': 'Excizia Totală a Mezorectului',
+            'RCT': 'Studiu Randomizat Controlat (Randomized Controlled Trial)',
+            'UFA': 'Uncinatus First Approach',
+            'RACS': 'Chirurgie Robotică Colorectală (Robotic-Assisted Colorectal Surgery)',
+            'MGA': 'Evaluare Geriatrică Multidimensională (Multidimensional Geriatric Assessment)',
+            'CGA': 'Evaluare Geriatrică Cuprinzătoare (Comprehensive Geriatric Assessment)',
+            'NIR': 'Fluorescență în Infraroșu Apropiat (Near-Infrared)',
+            'MCT': 'Trigliceride cu Lanț Mediu (Medium-Chain Triglycerides)',
+            'NPT': 'Nutriție Parenterală Totală (Total Parenteral Nutrition)'
+        };
+
 
         function parseBibliography(text) {
             const lines = text.trim().split('\n');
@@ -894,7 +1080,6 @@
                     const id = parseInt(match[1], 10);
                     const fullText = match[2].trim();
                     let tooltipText = '';
-                    // Logic for tooltip text generation
                     const domainMatch = fullText.match(/^(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9.-]+)\//i);
                     if (domainMatch) {
                         tooltipText = domainMatch[1];
@@ -945,27 +1130,25 @@
             const fragment = document.createDocumentFragment();
             let match;
 
-            // Handle specific case for PDF source to avoid making "DOI:" a link
              const doiMatch = text.match(/(DOI:\s*10\.[0-9]+\/[-A-Z0-9+&@#\/%=~_.]+)/i);
              if (doiMatch) {
                 const beforeDoi = text.substring(0, doiMatch.index);
                 const doiText = doiMatch[0];
                 const afterDoi = text.substring(doiMatch.index + doiText.length);
                 
-                fragment.appendChild(makeUrlsClickable(beforeDoi)); // Process text before DOI
+                fragment.appendChild(makeUrlsClickable(beforeDoi)); 
 
                 const doiLink = document.createElement('a');
-                doiLink.href = "https://doi.org/" + doiMatch[1].substring(5).trim(); //substring(5) to remove "DOI: "
+                doiLink.href = "https://doi.org/" + doiMatch[1].substring(5).trim(); 
                 doiLink.textContent = doiText;
                 doiLink.className = 'external-link';
                 doiLink.target = '_blank';
                 doiLink.rel = 'noopener noreferrer';
                 fragment.appendChild(doiLink);
                 
-                fragment.appendChild(makeUrlsClickable(afterDoi)); // Process text after DOI
+                fragment.appendChild(makeUrlsClickable(afterDoi)); 
                 return fragment;
              }
-
 
             while ((match = urlRegex.exec(text)) !== null) {
                 if (match.index > lastIndex) {
@@ -989,6 +1172,83 @@
             }
             return fragment;
         }
+        
+        function addMedicalTermTooltips() {
+            document.querySelectorAll('.slide-main-content').forEach(contentArea => {
+                const textNodes = [];
+                const walker = document.createTreeWalker(contentArea, NodeFilter.SHOW_TEXT, {
+                    acceptNode: function(node) {
+                        let current = node.parentNode;
+                        while (current && current !== contentArea) {
+                            if (['A', 'ABBR', 'SCRIPT', 'STYLE'].includes(current.nodeName.toUpperCase())) {
+                                return NodeFilter.FILTER_REJECT;
+                            }
+                            current = current.parentNode;
+                        }
+                        return NodeFilter.FILTER_ACCEPT;
+                    }
+                }, false);
+
+                let node;
+                while(node = walker.nextNode()) {
+                    textNodes.push(node);
+                }
+
+                textNodes.forEach(textNode => {
+                    const parent = textNode.parentNode;
+                    if (!parent) return; // Node might have been removed by previous manipulations
+
+                    let text = textNode.nodeValue;
+                    const replacements = []; 
+
+                    Object.keys(medicalTerms).forEach(termKey => {
+                        // Ensure termKey is properly escaped for regex if it contains special characters
+                        const escapedTermKey = termKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                        const regex = new RegExp(`\\b(${escapedTermKey})\\b`, 'g');
+                        let match;
+                        while((match = regex.exec(text)) !== null) {
+                            const abbr = document.createElement('abbr');
+                            abbr.title = medicalTerms[termKey];
+                            abbr.className = 'cursor-help border-b border-dotted border-stone-400';
+                            abbr.textContent = match[1];
+                            replacements.push({index: match.index, length: match[0].length, newNode: abbr});
+                        }
+                    });
+
+                    if (replacements.length > 0) {
+                        replacements.sort((a, b) => a.index - b.index);
+                        
+                        const fragment = document.createDocumentFragment();
+                        let lastIndex = 0;
+                        
+                        const filteredReplacements = [];
+                        let currentPos = -1;
+                        for (const rep of replacements) {
+                            if (rep.index >= currentPos) {
+                                filteredReplacements.push(rep);
+                                currentPos = rep.index + rep.length;
+                            }
+                        }
+
+                        filteredReplacements.forEach(rep => {
+                            if (rep.index > lastIndex) {
+                                fragment.appendChild(document.createTextNode(text.substring(lastIndex, rep.index)));
+                            }
+                            fragment.appendChild(rep.newNode);
+                            lastIndex = rep.index + rep.length;
+                        });
+
+                        if (lastIndex < text.length) {
+                            fragment.appendChild(document.createTextNode(text.substring(lastIndex)));
+                        }
+                        if (parent && textNode.parentNode === parent) { // Check if still attached
+                           parent.replaceChild(fragment, textNode);
+                        }
+                    }
+                });
+            });
+        }
+
 
         document.addEventListener('DOMContentLoaded', () => {
             parseBibliography(bibliographySourceText);
@@ -1022,7 +1282,7 @@
             tocMainContent.innerHTML = `
                 <h2 class="text-2xl sm:text-3xl font-semibold text-teal-700 mb-6 text-center">Cuprins</h2>
                 <ul id="tocList" class="space-y-1 sm:space-y-2 text-base sm:text-lg text-stone-700 max-w-2xl mx-auto pl-0 list-none">
-                </ul>`; // Am scos pl-4 și list-disc pentru a permite controlul complet al indentării la <li>
+                </ul>`;
             tocSlide.appendChild(tocMainContent);
             const slideArea = document.getElementById('slideArea');
             if (slideArea.children.length > 1) {
@@ -1036,6 +1296,7 @@
             bibliographySlideActualIndex = Array.from(slides).indexOf(bibliographySlideElement);
 
             const tocList = document.getElementById('tocList');
+            quickNavList = document.getElementById('quickNavList');
             const sectionPattern = /^(I{1,3}|IV|V|VI|VII|VIII|IX|X)\.\s+(.*)/;
             const addedTocTitles = new Set(); 
 
@@ -1043,35 +1304,56 @@
                 const h2 = slide.querySelector('.slide-main-content > h2:first-child');
                 if (h2) {
                     const h2Text = h2.textContent.trim();
-                    if (slide.id === 'tableOfContentsSlide') { 
-                         return;
-                    }
-                    const match = h2Text.match(sectionPattern);
+                    if (slide.id === 'tableOfContentsSlide') return;
                     
-                    if (match || slide.id === 'bibliographySlideGlobal') {
-                        const sectionTitle = slide.id === 'bibliographySlideGlobal' ? "Bibliografie Generală" : match[0]; 
+                    const match = h2Text.match(sectionPattern);
+                    let sectionTitle = "";
+                    let isMajorSection = false;
 
-                        if (!addedTocTitles.has(sectionTitle)) {
-                            const listItem = document.createElement('li');
-                            if (match && slide.id !== 'bibliographySlideGlobal') {
-                                listItem.className = "pl-4"; 
-                            } else {
-                                listItem.className = ""; 
+                    if (match) {
+                        sectionTitle = match[0];
+                        isMajorSection = true;
+                    } else if (slide.id === 'bibliographySlideGlobal') {
+                         sectionTitle = "Bibliografie Generală";
+                         isMajorSection = true;
+                    } else if (index === 0) {
+                        sectionTitle = "Titlu"; // For the first slide
+                        isMajorSection = true;
+                    } else if (index === totalSlides - 1) {
+                        sectionTitle = "Mulțumiri"; // For the last slide
+                        isMajorSection = true;
+                    }
+
+
+                    if (isMajorSection && !addedTocTitles.has(sectionTitle)) {
+                        const tocListItem = document.createElement('li');
+                        if (match && slide.id !== 'bibliographySlideGlobal') tocListItem.className = "pl-4";
+                        
+                        const link = document.createElement('a');
+                        link.href = '#';
+                        link.className = 'toc-link text-sky-700 hover:text-teal-600 hover:underline cursor-pointer';
+                        link.textContent = sectionTitle;
+                        link.dataset.targetSlideIndex = index;
+                        link.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            showSlide(parseInt(e.target.dataset.targetSlideIndex, 10));
+                            if (quickNavMenu.classList.contains('hidden') === false) {
+                                quickNavMenu.classList.add('hidden');
                             }
+                        });
+                        tocListItem.appendChild(link);
+                        tocList.appendChild(tocListItem);
 
-                            const link = document.createElement('a');
-                            link.href = '#';
-                            link.className = 'toc-link text-sky-700 hover:text-teal-600 hover:underline cursor-pointer';
-                            link.textContent = sectionTitle;
-                            link.dataset.targetSlideIndex = index;
-                            link.addEventListener('click', (e) => {
-                                e.preventDefault();
-                                showSlide(parseInt(e.target.dataset.targetSlideIndex, 10));
-                            });
-                            listItem.appendChild(link);
-                            tocList.appendChild(listItem);
-                            addedTocTitles.add(sectionTitle); 
-                        }
+                        // Add to QuickNav
+                        const quickNavListItem = tocListItem.cloneNode(true);
+                        quickNavListItem.querySelector('a').addEventListener('click', (e) => {
+                             e.preventDefault();
+                             showSlide(parseInt(e.target.dataset.targetSlideIndex, 10));
+                             quickNavMenu.classList.add('hidden');
+                        });
+                        quickNavList.appendChild(quickNavListItem);
+
+                        addedTocTitles.add(sectionTitle); 
                     }
                 }
             });
@@ -1081,45 +1363,7 @@
                 if (mainContentToProcess) processNodeForSup(mainContentToProcess, slideIdx);
             });
             
-            function processNodeForSup(parentElement, currentSlideIdxGlobal) {
-                Array.from(parentElement.childNodes).forEach(currentNode => {
-                    if (currentNode.nodeType === Node.TEXT_NODE) {
-                        const text = currentNode.nodeValue;
-                        const citationRegex = /\[([\d,-–]+)\]/g;
-                        let lastIndex = 0;
-                        const fragment = document.createDocumentFragment();
-                        let match;
-                        while ((match = citationRegex.exec(text)) !== null) {
-                            if (match.index > lastIndex) fragment.appendChild(document.createTextNode(text.substring(lastIndex, match.index)));
-                            const refNumbersArray = parseCitationString(match[1]);
-                            if (refNumbersArray.length > 0) {
-                                const anchor = document.createElement('a');
-                                anchor.className = 'citation-link';
-                                anchor.href = `#ref-item-${refNumbersArray[0]}`;
-                                const sup = document.createElement('sup');
-                                sup.textContent = refNumbersArray.join(',');
-                                sup.title = refNumbersArray.map(num => bibliographyStore.find(r => r.id === num)?.tooltipText || `Ref ${num}`).join('; ');
-                                anchor.appendChild(sup);
-                                fragment.appendChild(anchor);
-                                anchor.addEventListener('click', (e) => {
-                                    e.preventDefault();
-                                    lastClickedFromSlideIndex = currentSlideIdxGlobal;
-                                    if (bibliographySlideActualIndex !== -1) {
-                                        showSlide(bibliographySlideActualIndex);
-                                        const targetElement = document.getElementById(e.currentTarget.hash.substring(1));
-                                        if (targetElement) setTimeout(() => targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
-                                    }
-                                });
-                            }
-                            lastIndex = citationRegex.lastIndex;
-                        }
-                        if (lastIndex < text.length) fragment.appendChild(document.createTextNode(text.substring(lastIndex)));
-                        if (fragment.childNodes.length > 0 && currentNode.parentNode) currentNode.parentNode.replaceChild(fragment, currentNode);
-                    } else if (currentNode.nodeType === Node.ELEMENT_NODE && currentNode.tagName !== 'SCRIPT' && currentNode.tagName !== 'STYLE' && currentNode.tagName !== 'A') {
-                        processNodeForSup(currentNode, currentSlideIdxGlobal);
-                    }
-                });
-            }
+            addMedicalTermTooltips(); // Add tooltips after citations
 
             const bibListElement = document.getElementById('bibliographyList');
             if (bibListElement) {
@@ -1137,7 +1381,54 @@
             }
             
             initializePresentation(); 
+            updateTableScrollIndicators();
+            startTimer();
+            setupEventListeners();
         });
+
+        function processNodeForSup(parentElement, currentSlideIdxGlobal) {
+            Array.from(parentElement.childNodes).forEach(currentNode => {
+                if (currentNode.nodeType === Node.TEXT_NODE) {
+                    const text = currentNode.nodeValue;
+                    const citationRegex = /\[([\d,-–]+)\]/g;
+                    let lastIndex = 0;
+                    const fragment = document.createDocumentFragment();
+                    let match;
+                    while ((match = citationRegex.exec(text)) !== null) {
+                        if (match.index > lastIndex) fragment.appendChild(document.createTextNode(text.substring(lastIndex, match.index)));
+                        const refNumbersArray = parseCitationString(match[1]);
+                        if (refNumbersArray.length > 0) {
+                            const anchor = document.createElement('a');
+                            anchor.className = 'citation-link';
+                            anchor.href = `#ref-item-${refNumbersArray[0]}`;
+                            const sup = document.createElement('sup');
+                            sup.textContent = refNumbersArray.join(',');
+                            sup.title = refNumbersArray.map(num => bibliographyStore.find(r => r.id === num)?.tooltipText || `Ref ${num}`).join('; ');
+                            anchor.appendChild(sup);
+                            fragment.appendChild(anchor);
+                            anchor.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                lastClickedFromSlideIndex = currentSlideIdxGlobal;
+                                if (bibliographySlideActualIndex !== -1) {
+                                    showSlide(bibliographySlideActualIndex);
+                                    const targetElement = document.getElementById(e.currentTarget.hash.substring(1));
+                                    if (targetElement) setTimeout(() => targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+                                }
+                            });
+                        }
+                        lastIndex = citationRegex.lastIndex;
+                    }
+                    if (lastIndex < text.length) fragment.appendChild(document.createTextNode(text.substring(lastIndex)));
+                    if (fragment.childNodes.length > 0 && currentNode.parentNode) {
+                        // Check if parent still exists before replacing
+                         if(currentNode.parentNode) currentNode.parentNode.replaceChild(fragment, currentNode);
+                    }
+                } else if (currentNode.nodeType === Node.ELEMENT_NODE && currentNode.tagName !== 'SCRIPT' && currentNode.tagName !== 'STYLE' && currentNode.tagName !== 'A' && currentNode.tagName !== 'ABBR') {
+                    processNodeForSup(currentNode, currentSlideIdxGlobal);
+                }
+            });
+        }
+
 
         function initializePresentation() {
             prevButton = document.getElementById('prevButton');
@@ -1147,16 +1438,116 @@
             jumpToSlideBtn = document.getElementById('jumpToSlideBtn');
             returnToCitationSlideBtn = document.getElementById('returnToCitationSlideBtn');
             slideNavCenter = document.getElementById('slideNavCenter');
+            timerDisplay = document.getElementById('timerDisplay');
+            
+            searchBtn = document.getElementById('searchBtn');
+            searchModal = document.getElementById('searchModal');
+            searchInput = document.getElementById('searchInput');
+            searchResultsContainer = document.getElementById('searchResultsContainer');
+            searchModalResultsList = document.getElementById('searchModalResultsList');
+            noResultsMsg = document.getElementById('noResultsMsg');
+            closeSearchModalBtn = document.getElementById('closeSearchModalBtn');
+
+            quickNavBtn = document.getElementById('quickNavBtn');
+            quickNavMenu = document.getElementById('quickNavMenu');
+
             slideNumberInput.max = totalSlides; 
             showSlide(currentSlide); 
+        }
 
+        function setupEventListeners() {
             prevButton.addEventListener('click', () => { if (currentSlide > 0) showSlide(currentSlide - 1); });
             nextButton.addEventListener('click', () => { if (currentSlide < totalSlides - 1) showSlide(currentSlide + 1); });
             jumpToSlideBtn.addEventListener('click', navigateToSlideInput);
             slideNumberInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') navigateToSlideInput(); });
+            
             if (returnToCitationSlideBtn) {
                 returnToCitationSlideBtn.addEventListener('click', () => { if (lastClickedFromSlideIndex !== -1) showSlide(lastClickedFromSlideIndex); });
             }
+
+            // Keyboard Navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || searchModal.classList.contains('hidden') === false) {
+                    if (e.key === "Escape" && searchModal.classList.contains('hidden') === false) {
+                         searchModal.classList.add('hidden');
+                    }
+                    return; 
+                }
+                
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        if (currentSlide > 0) showSlide(currentSlide - 1);
+                        break;
+                    case 'ArrowRight':
+                    case ' ': 
+                        if (currentSlide < totalSlides - 1) showSlide(currentSlide + 1);
+                        e.preventDefault(); // Prevent space from scrolling page
+                        break;
+                    case 'Home':
+                        showSlide(0);
+                        break;
+                    case 'End':
+                        showSlide(totalSlides - 1);
+                        break;
+                    case 'f': 
+                        if (e.ctrlKey || e.metaKey) { // Ctrl+F or Cmd+F for fullscreen
+                            e.preventDefault();
+                            toggleFullscreen();
+                        }
+                        break;
+                }
+            });
+
+            // Touch Gestures
+            let touchStartX = 0;
+            let touchEndX = 0;
+            const slideAreaElement = document.getElementById('slideArea');
+
+            slideAreaElement.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+
+            slideAreaElement.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                if (touchEndX < touchStartX - 50 && currentSlide < totalSlides - 1) { // Swipe Left
+                    showSlide(currentSlide + 1);
+                }
+                if (touchEndX > touchStartX + 50 && currentSlide > 0) { // Swipe Right
+                    showSlide(currentSlide - 1);
+                }
+            }
+
+            // Search Modal
+            searchBtn.addEventListener('click', () => {
+                searchModal.classList.remove('hidden');
+                searchInput.focus();
+                searchInput.value = ''; // Clear previous search
+                searchModalResultsList.innerHTML = ''; // Clear previous results
+                noResultsMsg.classList.add('hidden');
+            });
+            closeSearchModalBtn.addEventListener('click', () => searchModal.classList.add('hidden'));
+            searchInput.addEventListener('input', performSearch);
+            searchModal.addEventListener('click', (e) => { // Close if backdrop is clicked
+                if (e.target === searchModal) {
+                    searchModal.classList.add('hidden');
+                }
+            });
+
+
+            // Quick Navigation
+            quickNavBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent closing if clicked immediately
+                quickNavMenu.classList.toggle('hidden');
+            });
+            document.addEventListener('click', (e) => { // Close QuickNav if clicked outside
+                if (!quickNavMenu.classList.contains('hidden') && !quickNavBtn.contains(e.target) && !quickNavMenu.contains(e.target)) {
+                    quickNavMenu.classList.add('hidden');
+                }
+            });
         }
 
         function updateNavigationControls() {
@@ -1181,6 +1572,11 @@
                 if (slideTextSpan) slideTextSpan.classList.remove('hidden');
                 if (!isBibliographySlideActive) lastClickedFromSlideIndex = -1;
             }
+
+            // Update Progress Bar
+            const progressBar = document.getElementById('progressBar');
+            const progress = totalSlides > 1 ? ((currentSlide) / (totalSlides-1)) * 100 : (totalSlides === 1 ? 100 : 0);
+            progressBar.style.width = `${progress}%`;
         }
 
         function showSlide(index) {
@@ -1190,6 +1586,7 @@
                 updateNavigationControls();
                 const activeSlideMainContent = slides[index]?.querySelector('.slide-main-content');
                 if (activeSlideMainContent) activeSlideMainContent.scrollTop = 0;
+                updateTableScrollIndicators(); // Check tables on new slide
             }
         }
 
@@ -1202,6 +1599,100 @@
                 slideNumberInput.value = currentSlide + 1; 
             }
         }
+
+        function toggleFullscreen() {
+            const elem = document.getElementById('presentationContainer'); // Target the presentation container
+            if (!document.fullscreenElement) {
+                if (elem.requestFullscreen) elem.requestFullscreen();
+                else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen(); /* Safari */
+                else if (elem.msRequestFullscreen) elem.msRequestFullscreen(); /* IE11 */
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen(); /* Safari */
+                else if (document.msExitFullscreen) document.msExitFullscreen(); /* IE11 */
+            }
+        }
+        
+        function updateTableScrollIndicators() {
+            document.querySelectorAll('.table-container').forEach(container => {
+                // Check if the table itself is wider than the container
+                const table = container.querySelector('table');
+                if (table && table.offsetWidth > container.clientWidth) {
+                    container.classList.add('scrollable');
+                } else {
+                    container.classList.remove('scrollable');
+                }
+            });
+        }
+        window.addEventListener('resize', updateTableScrollIndicators);
+
+
+        function startTimer() {
+            if (presentationTimerInterval) clearInterval(presentationTimerInterval); // Clear existing timer
+            presentationTimerInterval = setInterval(() => {
+                elapsedSeconds++;
+                const minutes = Math.floor(elapsedSeconds / 60);
+                const seconds = elapsedSeconds % 60;
+                if(timerDisplay) {
+                    timerDisplay.textContent = 
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                }
+            }, 1000);
+        }
+
+        function performSearch() {
+            const query = searchInput.value.toLowerCase().trim();
+            searchModalResultsList.innerHTML = ''; // Clear previous results
+            
+            if (query.length < 2) { // Minimum 2 characters to search
+                noResultsMsg.classList.add('hidden');
+                return;
+            }
+
+            let resultsFound = false;
+            slides.forEach((slide, index) => {
+                // Exclude ToC and Bibliography from simple text search results or handle them differently if needed
+                if (slide.id === 'tableOfContentsSlide' || slide.id === 'bibliographySlideGlobal') {
+                   // return;
+                }
+
+                const slideText = slide.textContent.toLowerCase();
+                if (slideText.includes(query)) {
+                    resultsFound = true;
+                    const listItem = document.createElement('li');
+                    const button = document.createElement('button');
+                    
+                    let title = `Slide ${index + 1}`;
+                    const h2 = slide.querySelector('h2');
+                    const h3 = slide.querySelector('h3');
+                    if (h2) title += `: ${h2.textContent.substring(0,30)}...`;
+                    else if (h3) title += `: ${h3.textContent.substring(0,30)}...`;
+                    
+                    button.textContent = title;
+                    button.onclick = () => {
+                        showSlide(index);
+                        searchModal.classList.add('hidden');
+                        // Basic highlighting (can be improved)
+                        setTimeout(() => {
+                             const mainContent = slides[index].querySelector('.slide-main-content');
+                             if (mainContent) {
+                                // This is a very naive way to highlight and will break HTML structure if not careful
+                                // For production, a more robust highlighting library or method is needed.
+                                // let innerHTML = mainContent.innerHTML;
+                                // const regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                                // innerHTML = innerHTML.replace(regex, `<span class="highlight">$&</span>`);
+                                // mainContent.innerHTML = innerHTML; // This will break event listeners on children!
+                             }
+                        }, 100);
+                    };
+                    listItem.appendChild(button);
+                    searchModalResultsList.appendChild(listItem);
+                }
+            });
+
+            noResultsMsg.classList.toggle('hidden', resultsFound);
+        }
+
     </script>
 </body>
 </html>
